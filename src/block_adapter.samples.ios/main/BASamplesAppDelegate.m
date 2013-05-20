@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  AppDelegate.m
-//  jsonbroker.samples.ios
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 16/05/13.
-//
-//
+
 
 #import "BAInitialController.h"
 #import "BASamplesAppDelegate.h"

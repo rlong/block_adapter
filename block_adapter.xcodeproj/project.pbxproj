@@ -158,7 +158,6 @@
 		AE7CBB911745BE5B000FCA37 = {
 			isa = PBXGroup;
 			children = (
-				AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */,
 				AE7CBBBA1745BF52000FCA37 /* src */,
 				AE887B4F1749E9C900B82201 /* block_adapter.library.ios */,
 				AECDBC171749EEE300202E72 /* block_adapter.samples.ios */,
@@ -179,6 +178,7 @@
 		AE7CBB9E1745BEE0000FCA37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */,
 				AE7CBBDE1745BF77000FCA37 /* libjsonbroker.library.ios.a */,
 				AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */,
 				AE7CBBA11745BEE0000FCA37 /* Foundation.framework */,

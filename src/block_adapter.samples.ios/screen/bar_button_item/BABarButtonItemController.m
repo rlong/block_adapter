@@ -1,9 +1,6 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBBarButtonItemController.m
-//  jsonbroker.samples
-//
-//  Created by rlong on 18/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
 #import "BABarButtonItemBlockAdapter.h"

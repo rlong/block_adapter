@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  block_adapter_library_ios.m
-//  block_adapter.library.ios
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 20/05/13.
-//
-//
+
 
 #import "block_adapter_library_ios.h"
 

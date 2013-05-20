@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBAlertView.m
-//  jsonbroker
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 16/05/13.
-//
-//
+
 
 #import "BAAlertView.h"
 #import "JBLog.h"

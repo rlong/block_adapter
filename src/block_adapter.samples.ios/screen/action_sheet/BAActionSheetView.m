@@ -1,10 +1,9 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBActionSheetView.m
-//  jsonbroker.samples
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 17/05/13.
-//
-//
+
+
 
 #import "BAActionSheetView.h"
 #import "JBLog.h"

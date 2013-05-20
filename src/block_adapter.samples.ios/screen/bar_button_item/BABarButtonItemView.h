@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBBarButtonItemView.h
-//  jsonbroker.samples
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 18/05/13.
-//
-//
+
 
 #import <Foundation/Foundation.h>
 

@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBTableViewDelegateView.m
-//  jsonbroker.samples
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 17/05/13.
-//
-//
+
 
 #import "JBLog.h"
 #import "BATableViewDelegateView.h"

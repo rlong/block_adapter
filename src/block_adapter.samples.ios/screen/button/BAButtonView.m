@@ -1,9 +1,6 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBButtonView.m
-//  jsonbroker
-//
-//  Created by rlong on 16/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
 #import "BAButtonView.h"
