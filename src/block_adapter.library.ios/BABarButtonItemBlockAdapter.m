@@ -58,9 +58,6 @@
     BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     [answer autorelease];
     
-    [client setTarget:answer];
-    [client setAction:@selector(adaptCall:)];
-    
     return answer;
 }
 
@@ -73,8 +70,6 @@
                                                                 asyncBlockFailed:asyncTaskFailed];
     [answer autorelease];
     
-    [client setTarget:answer];
-    [client setAction:@selector(adaptCall:)];
     
     return answer;
     
@@ -93,6 +88,10 @@
         [answer setClient:client];
         [answer setAdaptee:adaptee];
         
+        [client setTarget:answer];
+        [client setAction:@selector(adaptCall:)];
+
+        
     }
     
     return answer;
@@ -108,6 +107,9 @@
         [answer setClient:client];
         [answer setAdaptee:adaptee];
         
+        [client setTarget:answer];
+        [client setAction:@selector(adaptCall:)];
+
     }
     
     return answer;

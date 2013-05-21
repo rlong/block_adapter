@@ -48,7 +48,6 @@
     
     [answer autorelease];
     
-    [client setDelegate:answer];
     
     return answer;
     
@@ -61,8 +60,6 @@
     BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     [answer autorelease];
-    
-    [client setDelegate:answer];
     
     return answer;
     
@@ -102,7 +99,9 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
-        
+     
+        [client setDelegate:answer];
+
     }
     
     return answer;
@@ -117,6 +116,9 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
+        
+        [client setDelegate:answer];
+
         
     }
     

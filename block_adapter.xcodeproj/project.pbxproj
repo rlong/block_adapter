@@ -124,7 +124,7 @@
 		AECDBC231749EEE300202E72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AECDBC251749EEE300202E72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AECDBC271749EEE300202E72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
+		AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -186,8 +186,8 @@
 		AE7CBBBA1745BF52000FCA37 /* src */ = {
 			isa = PBXGroup;
 			children = (
-				AE887B721749EA3900B82201 /* block_adapter.samples.ios */,
 				AE887B481749E95000B82201 /* block_adapter.library.ios */,
+				AE887B721749EA3900B82201 /* block_adapter.samples.ios */,
 			);
 			path = src;
 			sourceTree = "<group>";
@@ -679,6 +679,7 @@
 				AECDBC2B1749EEE300202E72 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

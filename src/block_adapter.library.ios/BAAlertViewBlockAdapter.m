@@ -47,8 +47,6 @@
     
     [answer autorelease];
     
-    [client setDelegate:answer];
-    
     return answer;
 
     
@@ -61,8 +59,6 @@
     
     
     [answer autorelease];
-    
-    [client setDelegate:answer];
     
     return answer;
     
@@ -104,6 +100,9 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
+
+        [client setDelegate:answer];
+
     }
     
     return answer;
@@ -117,6 +116,8 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
+    
+        [client setDelegate:answer];
     }
     
     return answer;

@@ -42,11 +42,8 @@
     
     
     BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    
-    
     [answer autorelease];
     
-    [client setDelegate:answer];
     
     return answer;
     
@@ -57,11 +54,8 @@
 +(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
-    
-    
     [answer autorelease];
     
-    [client setDelegate:answer];
     
     return answer;
     
@@ -102,6 +96,9 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
+        
+        [client setDelegate:answer];
+
     }
     
     return answer;
@@ -116,6 +113,8 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
+
+        [client setDelegate:answer];
     }
     
     return answer;

@@ -66,7 +66,6 @@
     BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     [answer autorelease];
     
-    [button addTarget:answer action:@selector(adaptCall:) forControlEvents:UIControlEventTouchUpInside];
     
     return answer;
 }
@@ -81,7 +80,6 @@
     [answer autorelease];
     
     
-    [button addTarget:answer action:@selector(adaptCall:) forControlEvents:UIControlEventTouchUpInside];
     
     return answer;
     
@@ -103,6 +101,8 @@
         [answer setClient:client];
         [answer setAdaptee:adaptee];
         
+        [client addTarget:answer action:@selector(adaptCall:) forControlEvents:UIControlEventTouchUpInside];
+
     }
     
     return answer;
@@ -117,7 +117,8 @@
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
-        
+
+        [client addTarget:answer action:@selector(adaptCall:) forControlEvents:UIControlEventTouchUpInside];
     }
     
     return answer;
