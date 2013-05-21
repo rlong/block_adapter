@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBAlertViewBlockAdapter.h
-//  jsonbroker
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 16/05/13.
-//
-//
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> // explicit import of UI* types
@@ -37,7 +35,12 @@ typedef id(^JBAlertViewDelegate)(UIAlertView* alertView, NSInteger buttonIndex);
 
 +(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee;
 
-+(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed;
-    
++(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
+
+#pragma mark -
+#pragma mark instance lifecycle
+
+-(id)initWithClient:(UIAlertView*)client adaptee:(JBAlertViewDelegate)adaptee;
+-(id)initWithClient:(UIAlertView*)client adaptee:(JBAlertViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

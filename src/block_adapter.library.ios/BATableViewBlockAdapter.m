@@ -1,14 +1,13 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBTableViewBlockAdapter.m
-//  jsonbroker
-//
-//  Created by rlong on 17/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
-#import "BABlockAdapterJob.h"
-#import "JBLog.h"
+
 #import "BATableViewBlockAdapter.h"
+
+#import "JBBlockJob.h"
+#import "JBLog.h"
 #import "JBWorkManager.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -41,7 +40,7 @@
 +(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee {
     
     
-    BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:nil asyncTaskDone:nil asyncTaskFailed:nil];
+    BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
     
     [answer autorelease];
@@ -54,9 +53,9 @@
 }
 
 
-+(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
++(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
-    BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     [answer autorelease];
     
@@ -77,7 +76,7 @@
     
     if( nil != _asyncTask ) {
         
-        BABlockAdapterJob* job = [[BABlockAdapterJob alloc] initWithAdapteeResponse:adapteeResponse asyncTask:_asyncTask asyncTaskDone:_asyncTaskDone asyncTaskFailed:_asyncTaskFailed];
+        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
         {
             [JBWorkManager enqueue:job];
         }
@@ -92,9 +91,26 @@
 #pragma mark instance lifecycle
 
 
--(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask asyncTaskDone:(AsyncTaskDone)asyncTaskDone asyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
+-(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee  {
     
-    BATableViewBlockAdapter* answer = [super initWithAsyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BATableViewBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
+    
+    if( nil != answer ) {
+        
+        [answer setClient:client];
+        [answer setAdaptee:adaptee];
+        
+    }
+    
+    return answer;
+    
+    
+}
+
+
+-(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+    
+    BATableViewBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     if( nil != answer ) {
         

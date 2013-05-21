@@ -1,33 +1,31 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBAbstractAdapter.h
-//  jsonbroker
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 17/05/13.
-//
-//
+
 
 #import <Foundation/Foundation.h>
 
 
-#import "BABlockAdapter.h"
+#import "JBBlockJob.h"
 
 
 @interface BAAbstractAdapter : NSObject  {
     
     // asyncTask
-    BAAsyncTask _asyncTask;
-    //@property (nonatomic, copy) BAAsyncTask asyncTask;
+    JBBlock _asyncTask;
+    //@property (nonatomic, copy) JBBlock asyncTask;
     //@synthesize asyncTask = _asyncTask;
 
     // asyncTaskDone
-    AsyncTaskDone _asyncTaskDone;
-    //@property (nonatomic, copy) AsyncTaskDone asyncTaskDone;
+    JBBlockDone _asyncTaskDone;
+    //@property (nonatomic, copy) JBBlockDone asyncTaskDone;
     //@synthesize asyncTaskDone = _asyncTaskDone;
 
     
     // asyncTaskFailed
-    AsyncTaskFailed _asyncTaskFailed;
-    //@property (nonatomic, copy) AsyncTaskFailed asyncTaskFailed;
+    JBBlockFailed _asyncTaskFailed;
+    //@property (nonatomic, copy) JBBlockFailed asyncTaskFailed;
     //@synthesize asyncTaskFailed = _asyncTaskFailed;
 
     
@@ -36,7 +34,7 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithAsyncTask:(BAAsyncTask)asyncTask asyncTaskDone:(AsyncTaskDone)asyncTaskDone asyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed;
+-(id)initWithAsyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 
 @end

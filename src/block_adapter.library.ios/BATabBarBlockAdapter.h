@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBTabBarBlockAdapter.h
-//  jsonbroker
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 17/05/13.
-//
-//
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> // explicit import of UI* types
@@ -33,7 +31,13 @@ typedef id(^JBTabBarDelegate)(UITabBar* tabBar, UITabBarItem* selectedItem);
 
 +(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee;
 
-+(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed;
++(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
 
+
+#pragma mark -
+#pragma mark instance lifecycle
+
+-(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee;
+-(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

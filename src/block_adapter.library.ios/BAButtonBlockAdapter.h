@@ -1,9 +1,6 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBButtonBlockAdapter.h
-//  jsonbroker
-//
-//  Created by rlong on 16/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
 #import <Foundation/Foundation.h>
@@ -32,6 +29,13 @@ typedef id(^ButtonDelegate)(UIButton*);
 
 +(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee;
 
-+(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed;
++(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
+
+
+#pragma mark -
+#pragma mark instance lifecycle
+
+-(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee;
+-(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

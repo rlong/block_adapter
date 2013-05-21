@@ -1,13 +1,12 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBBarButtonItemBlockAdapter.m
-//  jsonbroker
-//
-//  Created by rlong on 18/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
+
 #import "BABarButtonItemBlockAdapter.h"
-#import "BABlockAdapterJob.h"
+
+#import "JBBlockJob.h"
 #import "JBWorkManager.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -44,7 +43,7 @@
     
     if( nil != _asyncTask ) {
         
-        BABlockAdapterJob* job = [[BABlockAdapterJob alloc] initWithAdapteeResponse:adapteeResponse asyncTask:_asyncTask asyncTaskDone:_asyncTaskDone asyncTaskFailed:_asyncTaskFailed];
+        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
         {
             [JBWorkManager enqueue:job];
         }
@@ -56,7 +55,7 @@
 
 +(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee {
     
-    BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:nil asyncTaskDone:nil asyncTaskFailed:nil];
+    BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     [answer autorelease];
     
     [client setTarget:answer];
@@ -65,13 +64,13 @@
     return answer;
 }
 
-+(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
++(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client
                                                                         adaptee:adaptee
-                                                                      asyncTask:asyncTask
-                                                                  asyncTaskDone:asyncTaskDone
-                                                                asyncTaskFailed:asyncTaskFailed];
+                                                                      asyncBlock:asyncTask
+                                                                  asyncBlockDone:asyncTaskDone
+                                                                asyncBlockFailed:asyncTaskFailed];
     [answer autorelease];
     
     [client setTarget:answer];
@@ -85,9 +84,9 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask asyncTaskDone:(AsyncTaskDone)asyncTaskDone asyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
+-(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee {
     
-    BABarButtonItemBlockAdapter* answer = [super initWithAsyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BABarButtonItemBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
     if( nil != answer ) {
         
@@ -98,6 +97,20 @@
     
     return answer;
     
+}
+
+-(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+    
+    BABarButtonItemBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
+    
+    if( nil != answer ) {
+        
+        [answer setClient:client];
+        [answer setAdaptee:adaptee];
+        
+    }
+    
+    return answer;
     
 }
 

@@ -1,13 +1,12 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBActionSheetBlockAdapter.m
-//  jsonbroker
-//
-//  Created by rlong on 17/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
+
 #import "BAActionSheetBlockAdapter.h"
-#import "BABlockAdapterJob.h"
+
+#import "JBBlockJob.h"
 #import "JBWorkManager.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +41,7 @@
 +(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee {
     
     
-    BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:nil asyncTaskDone:nil asyncTaskFailed:nil];
+    BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
     
     [answer autorelease];
@@ -55,9 +54,9 @@
 }
 
 
-+(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
++(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
-    BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     
     [answer autorelease];
@@ -81,7 +80,7 @@
     
     if( nil != _asyncTask ) {
         
-        BABlockAdapterJob* job = [[BABlockAdapterJob alloc] initWithAdapteeResponse:adapteeResponse asyncTask:_asyncTask asyncTaskDone:_asyncTaskDone asyncTaskFailed:_asyncTaskFailed];
+        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
         {
             [JBWorkManager enqueue:job];            
         }
@@ -95,10 +94,23 @@
 #pragma mark instance lifecycle
 
 
+-(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee {
 
--(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask asyncTaskDone:(AsyncTaskDone)asyncTaskDone asyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
+    BAActionSheetBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
-    BAActionSheetBlockAdapter* answer = [super initWithAsyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    if( nil != answer ) {
+        
+        [answer setClient:client];
+        [answer setAdaptee:adaptee];
+    }
+    
+    return answer;
+
+}
+
+-(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+    
+    BAActionSheetBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     if( nil != answer ) {
         

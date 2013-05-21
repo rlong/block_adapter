@@ -1,10 +1,8 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBTableViewBlockAdapter.h
-//  jsonbroker
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
-//  Created by rlong on 17/05/13.
-//
-//
+
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h> // explicit import of UI* types
@@ -35,6 +33,13 @@ typedef id(^JBTableViewDelegate)(UITableView* tableView, NSIndexPath* indexPath)
 +(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee;
 
 
-+(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed;
++(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
+
+#pragma mark -
+#pragma mark instance lifecycle
+
+
+-(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee;
+-(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

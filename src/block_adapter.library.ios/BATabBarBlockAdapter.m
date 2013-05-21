@@ -1,16 +1,16 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBTabBarBlockAdapter.m
-//  jsonbroker
-//
-//  Created by rlong on 17/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
-#import "BABlockAdapterJob.h"
-#import "JBLog.h"
+
+
+
 #import "BATabBarBlockAdapter.h"
-#import "JBWorkManager.h"
 
+#import "JBBlockJob.h"
+#import "JBLog.h"
+#import "JBWorkManager.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,7 +43,7 @@
 +(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee {
     
     
-    BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:nil asyncTaskDone:nil asyncTaskFailed:nil];
+    BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
     
     [answer autorelease];
@@ -56,9 +56,9 @@
 }
 
 
-+(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
++(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
-    BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     [answer autorelease];
     
@@ -80,7 +80,7 @@
     
     if( nil != _asyncTask ) {
         
-        BABlockAdapterJob* job = [[BABlockAdapterJob alloc] initWithAdapteeResponse:adapteeResponse asyncTask:_asyncTask asyncTaskDone:_asyncTaskDone asyncTaskFailed:_asyncTaskFailed];
+        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
         {
             [JBWorkManager enqueue:job];
         }
@@ -93,9 +93,25 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask asyncTaskDone:(AsyncTaskDone)asyncTaskDone asyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
+
+-(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee {
     
-    BATabBarBlockAdapter* answer = [super initWithAsyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BATabBarBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
+    
+    if( nil != answer ) {
+        
+        [answer setClient:client];
+        [answer setAdaptee:adaptee];
+        
+    }
+    
+    return answer;
+    
+}
+
+-(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+    
+    BATabBarBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     if( nil != answer ) {
         

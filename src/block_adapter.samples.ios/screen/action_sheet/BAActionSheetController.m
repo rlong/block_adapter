@@ -67,14 +67,14 @@
                           selectedButtonIndex = buttonIndex;
                           return nil;
                       }
-                      asyncTask:(id)^(id adapteeResponse) {
+                      asyncBlock:(id)^(id adapteeResponse) {
                           Log_debugInt( selectedButtonIndex );
                           return nil;
                       }
-                      afterAsyncTaskDone:(id)^(id adapteeResponse) {
+                      afterAsyncBlockDone:(id)^(id adapteeResponse) {
                           Log_debugInt( selectedButtonIndex );
                       }
-                      afterAsyncTaskFailed:nil];
+                      afterAsyncBlockFailed:nil];
         
         
         BAActionSheetView* myView = [self getTypedView];

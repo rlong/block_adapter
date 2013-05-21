@@ -1,17 +1,14 @@
+// Copyright (c) 2013 Richard Long & HexBeerium
 //
-//  JBButtonBlockAdapter.m
-//  jsonbroker
-//
-//  Created by rlong on 16/05/13.
-//
+// Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
-#import "BABlockAdapterJob.h"
+
 #import "BAButtonBlockAdapter.h"
+
+#import "JBBlockJob.h"
 #import "JBLog.h"
 #import "JBWorkManager.h"
-
-
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -53,7 +50,7 @@
 
     if( nil != _asyncTask ) {
         
-        BABlockAdapterJob* job = [[BABlockAdapterJob alloc] initWithAdapteeResponse:adapteeResponse asyncTask:_asyncTask asyncTaskDone:_asyncTaskDone asyncTaskFailed:_asyncTaskFailed];
+        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
         {
             [JBWorkManager enqueue:job];
         }
@@ -66,7 +63,7 @@
 
 +(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee {
     
-    BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button adaptee:adaptee asyncTask:nil asyncTaskDone:nil asyncTaskFailed:nil];
+    BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     [answer autorelease];
     
     [button addTarget:answer action:@selector(adaptCall:) forControlEvents:UIControlEventTouchUpInside];
@@ -74,13 +71,13 @@
     return answer;
 }
 
-+(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask afterAsyncTaskDone:(AsyncTaskDone)asyncTaskDone afterAsyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
++(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
 
     BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button
                                                                         adaptee:adaptee
-                                                                      asyncTask:asyncTask
-                                                                  asyncTaskDone:asyncTaskDone
-                                                                asyncTaskFailed:asyncTaskFailed];
+                                                                      asyncBlock:asyncTask
+                                                                  asyncBlockDone:asyncTaskDone
+                                                                asyncBlockFailed:asyncTaskFailed];
     [answer autorelease];
     
     
@@ -97,9 +94,24 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee asyncTask:(BAAsyncTask)asyncTask asyncTaskDone:(AsyncTaskDone)asyncTaskDone asyncTaskFailed:(AsyncTaskFailed)asyncTaskFailed {
+-(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee {
     
-    BAButtonBlockAdapter* answer = [super initWithAsyncTask:asyncTask asyncTaskDone:asyncTaskDone asyncTaskFailed:asyncTaskFailed];
+    BAButtonBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
+    
+    if( nil != answer ) {
+        
+        [answer setClient:client];
+        [answer setAdaptee:adaptee];
+        
+    }
+    
+    return answer;
+    
+}
+
+-(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+    
+    BAButtonBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     if( nil != answer ) {
         

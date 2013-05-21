@@ -14,7 +14,6 @@
 		AE887B6B1749E9D900B82201 /* BAActionSheetBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5C1749E9D900B82201 /* BAActionSheetBlockAdapter.m */; };
 		AE887B6C1749E9DA00B82201 /* BAAlertViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5E1749E9D900B82201 /* BAAlertViewBlockAdapter.m */; };
 		AE887B6D1749E9DA00B82201 /* BABarButtonItemBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */; };
-		AE887B6E1749E9DA00B82201 /* BABlockAdapterJob.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B631749E9D900B82201 /* BABlockAdapterJob.m */; };
 		AE887B6F1749E9DA00B82201 /* BAButtonBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */; };
 		AE887B701749E9DA00B82201 /* BATabBarBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B671749E9D900B82201 /* BATabBarBlockAdapter.m */; };
 		AE887B711749E9DA00B82201 /* BATableViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B691749E9D900B82201 /* BATableViewBlockAdapter.m */; };
@@ -79,9 +78,6 @@
 		AE887B5E1749E9D900B82201 /* BAAlertViewBlockAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAlertViewBlockAdapter.m; sourceTree = "<group>"; };
 		AE887B5F1749E9D900B82201 /* BABarButtonItemBlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABarButtonItemBlockAdapter.h; sourceTree = "<group>"; };
 		AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABarButtonItemBlockAdapter.m; sourceTree = "<group>"; };
-		AE887B611749E9D900B82201 /* BABlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABlockAdapter.h; sourceTree = "<group>"; };
-		AE887B621749E9D900B82201 /* BABlockAdapterJob.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BABlockAdapterJob.h; sourceTree = "<group>"; };
-		AE887B631749E9D900B82201 /* BABlockAdapterJob.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BABlockAdapterJob.m; sourceTree = "<group>"; };
 		AE887B641749E9D900B82201 /* BAButtonBlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAButtonBlockAdapter.h; sourceTree = "<group>"; };
 		AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAButtonBlockAdapter.m; sourceTree = "<group>"; };
 		AE887B661749E9D900B82201 /* BATabBarBlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATabBarBlockAdapter.h; sourceTree = "<group>"; };
@@ -207,9 +203,6 @@
 				AE887B5E1749E9D900B82201 /* BAAlertViewBlockAdapter.m */,
 				AE887B5F1749E9D900B82201 /* BABarButtonItemBlockAdapter.h */,
 				AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */,
-				AE887B611749E9D900B82201 /* BABlockAdapter.h */,
-				AE887B621749E9D900B82201 /* BABlockAdapterJob.h */,
-				AE887B631749E9D900B82201 /* BABlockAdapterJob.m */,
 				AE887B641749E9D900B82201 /* BAButtonBlockAdapter.h */,
 				AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */,
 				AE887B661749E9D900B82201 /* BATabBarBlockAdapter.h */,
@@ -456,7 +449,6 @@
 				AE887B6B1749E9D900B82201 /* BAActionSheetBlockAdapter.m in Sources */,
 				AE887B6C1749E9DA00B82201 /* BAAlertViewBlockAdapter.m in Sources */,
 				AE887B6D1749E9DA00B82201 /* BABarButtonItemBlockAdapter.m in Sources */,
-				AE887B6E1749E9DA00B82201 /* BABlockAdapterJob.m in Sources */,
 				AE887B6F1749E9DA00B82201 /* BAButtonBlockAdapter.m in Sources */,
 				AE887B701749E9DA00B82201 /* BATabBarBlockAdapter.m in Sources */,
 				AE887B711749E9DA00B82201 /* BATableViewBlockAdapter.m in Sources */,
