@@ -11,6 +11,7 @@
 #import "BAAlertViewBlockAdapter.h"
 #import "BAButtonBlockAdapter.h"
 #import "JBLog.h"
+#import "JBMemoryModel.h"
 
 
 @implementation BAAlertController
@@ -36,7 +37,8 @@
     
 	UIAlertView *alert = [[UIAlertView alloc] initWithTitle:title message:message delegate:self cancelButtonTitle:nil otherButtonTitles: @"OK", nil];
 	[alert show];
-	[alert release];
+    JBRelease(alert);
+	//[alert release];
 
 }
 
@@ -59,7 +61,8 @@
     [[self getTypedView] addAdapter:adapter];
      
     [alert show];
-    [alert release];
+    JBRelease(alert);
+    //[alert release];
     
 }
 
@@ -100,7 +103,8 @@
     [[self getTypedView] addAdapter:adapter];
     
     [alert show];
-    [alert release];
+    JBRelease(alert);
+    //[alert release];
     
 
     

@@ -11,6 +11,7 @@
 #import "JBBlockJob.h"
 #import "JBLog.h"
 #import "JBWorkManager.h"
+#import "JBMemoryModel.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -44,9 +45,8 @@
     
     
     BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    
-    
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     
     return answer;
@@ -58,8 +58,8 @@
 +(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
-    
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     return answer;
     
@@ -81,7 +81,8 @@
         {
             [JBWorkManager enqueue:job];
         }
-        [job release];
+        JBAutorelease(job);
+        //[job release];
     }
     
 }
@@ -123,8 +124,6 @@
     }
     
     return answer;
-    
-    
 }
 
 
@@ -134,7 +133,7 @@
 	[self setClient:nil];
     [self setAdaptee:nil];
 
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

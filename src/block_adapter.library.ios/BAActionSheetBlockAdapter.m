@@ -7,7 +7,9 @@
 #import "BAActionSheetBlockAdapter.h"
 
 #import "JBBlockJob.h"
+#import "JBObjectTracker.h"
 #import "JBWorkManager.h"
+#import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -42,7 +44,8 @@
     
     
     BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     
     return answer;
@@ -54,7 +57,8 @@
 +(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     
     return answer;
@@ -78,7 +82,8 @@
         {
             [JBWorkManager enqueue:job];            
         }
-        [job release];
+        JBRelease(job);
+        //[job release];
     }
     
 }
@@ -93,6 +98,8 @@
     BAActionSheetBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
     if( nil != answer ) {
+        
+        [JBObjectTracker allocated:answer];
         
         [answer setClient:client];
         [answer setAdaptee:adaptee];
@@ -110,7 +117,9 @@
     BAActionSheetBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
     if( nil != answer ) {
-        
+
+        [JBObjectTracker allocated:answer];
+
         [answer setClient:client];
         [answer setAdaptee:adaptee];
 
@@ -124,10 +133,12 @@
 
 -(void)dealloc {
 	
+    [JBObjectTracker deallocated:self];
+    
 	[self setClient:nil];
     [self setAdaptee:nil];
     
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

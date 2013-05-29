@@ -13,8 +13,10 @@
 #import "BAButtonController.h"
 #import "BAInitialController.h"
 #import "BAInitialView.h"
-#import "JBLog.h"
 #import "BATableViewDelegateController.h"
+
+#import "JBLog.h"
+#import "JBMemoryModel.h"
 
 
 
@@ -54,7 +56,8 @@
                           {
                               [[self navigationController] pushViewController:subController animated:true];
                           }
-                          [subController release];
+                          JBRelease(subController);
+                          //[subController release];
                           return nil;
 
                           
@@ -75,7 +78,8 @@
                           {
                               [[self navigationController] pushViewController:subController animated:true];
                           }
-                          [subController release];
+                          JBRelease(subController);
+                          //[subController release];
                           return nil;
 
                       }];
@@ -96,7 +100,8 @@
                           {
                               [[self navigationController] pushViewController:subController animated:true];
                           }
-                          [subController release];
+                          JBRelease(subController);
+                          //[subController release];
                           return nil;
                           
                       }];
@@ -117,7 +122,8 @@
                           {
                               [[self navigationController] pushViewController:subController animated:true];
                           }
-                          [subController release];
+                          JBRelease(subController);
+                          //[subController release];
                           
                           return nil;
                           
@@ -140,7 +146,8 @@
                           {
                               [[self navigationController] pushViewController:subController animated:true];
                           }
-                          [subController release];
+                          JBRelease(subController);
+                          //[subController release];
                           
                           return nil;
                           

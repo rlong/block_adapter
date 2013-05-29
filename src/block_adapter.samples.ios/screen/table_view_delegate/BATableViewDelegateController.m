@@ -7,6 +7,8 @@
 
 
 #import "JBLog.h"
+#import "JBMemoryModel.h"
+
 #import "BATabBarBlockAdapter.h"
 #import "BATableViewBlockAdapter.h"
 #import "BATableViewDelegateController.h"
@@ -50,7 +52,8 @@
     UITableViewCell *answer = [tableView dequeueReusableCellWithIdentifier:reuseIdentifier];
 	if( nil == answer ) {
         
-        answer = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier] autorelease];
+        answer = [[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:reuseIdentifier];
+        JBAutorelease(answer);
 	}
     
     

@@ -5,6 +5,8 @@
 
 #import "BABarButtonItemView.h"
 
+#import "JBMemoryModel.h"
+
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -60,7 +62,7 @@
     [self setBlock:nil];
 	[self setAsyncBlock:nil];
 
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

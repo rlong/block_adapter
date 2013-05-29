@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'block_adapter.library.ios.non_arc' target in the 'block_adapter.library.ios.non_arc' project
+//
+
+#ifdef __OBJC__
+    #import <Foundation/Foundation.h>
+#endif

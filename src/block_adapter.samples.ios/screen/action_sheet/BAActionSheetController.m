@@ -10,6 +10,8 @@
 #import "BAActionSheetView.h"
 #import "BAButtonBlockAdapter.h"
 #import "JBLog.h"
+#import "JBMemoryModel.h"
+
 
 @implementation BAActionSheetController
 
@@ -45,8 +47,8 @@
         [actionSheet showFromToolbar:toolbar];
 
     }
-
-    [actionSheet release];
+    JBRelease(actionSheet);
+    //[actionSheet release];
 
     
     
@@ -84,8 +86,8 @@
         [actionSheet showFromToolbar:toolbar];
         
     }
-    
-    [actionSheet release];
+    JBRelease(actionSheet);
+    //[actionSheet release];
 
     
     
@@ -105,7 +107,8 @@
         [actionSheet showFromToolbar:toolbar];
         
     }
-    [actionSheet release];
+    JBRelease(actionSheet);
+    //[actionSheet release];
 
     
 }

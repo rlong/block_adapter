@@ -9,6 +9,7 @@
 #import "JBBlockJob.h"
 #import "JBLog.h"
 #import "JBWorkManager.h"
+#import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -54,7 +55,8 @@
         {
             [JBWorkManager enqueue:job];
         }
-        [job release];
+        JBRelease(job);
+        //[job release];
     }
 
 }
@@ -64,7 +66,8 @@
 +(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee {
     
     BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     
     return answer;
@@ -77,7 +80,8 @@
                                                                       asyncBlock:asyncTask
                                                                   asyncBlockDone:asyncTaskDone
                                                                 asyncBlockFailed:asyncTaskFailed];
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     
     
@@ -136,7 +140,7 @@
     [self setAdaptee:nil];
 
 
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

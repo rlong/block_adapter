@@ -6,14 +6,19 @@
 
 #import "BAInitialController.h"
 #import "BASamplesAppDelegate.h"
+
+#import "JBMemoryModel.h"
 #import "JBWorkManager.h"
+
 
 @implementation BASamplesAppDelegate
 
 - (void)dealloc
 {
-    [_window release];
-    [super dealloc];
+    JBRelease(_window);
+    //[_window release];
+    JBSuperDealloc();
+    //[super dealloc];
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
@@ -29,7 +34,7 @@
         [JBWorkManager start];
     }
     
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+    self.window = JBReturnAutorelease([[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]]);
     // Override point for customization after application launch.
     self.window.backgroundColor = [UIColor whiteColor];
     [self.window makeKeyAndVisible];
@@ -40,8 +45,10 @@
         {
             [self.window setRootViewController:navigationController];
         }
-        [navigationController release];
-        [initialController release];
+        JBRelease(navigationController);
+        //[navigationController release];
+        JBRelease(initialController);
+        //[initialController release];
     }
     
     return YES;

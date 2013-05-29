@@ -5,6 +5,7 @@
 
 #import "BAButtonView.h"
 #import "JBLog.h"
+#import "JBMemoryModel.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -62,7 +63,7 @@
     [self setAsyncBlockButton:nil];
 
 	
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

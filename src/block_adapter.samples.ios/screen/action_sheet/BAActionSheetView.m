@@ -7,6 +7,7 @@
 
 #import "BAActionSheetView.h"
 #import "JBLog.h"
+#import "JBMemoryModel.h"
 
 
 
@@ -68,7 +69,8 @@
     [self setBlockActionSheet:nil];
 	[self setAsyncBlockActionSheet:nil];
 
-	[super dealloc];
+    JBSuperDealloc();
+	//[super dealloc];
 	
 }
 

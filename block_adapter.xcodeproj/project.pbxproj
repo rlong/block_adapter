@@ -7,55 +7,101 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		AE887B4E1749E9C900B82201 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
-		AE887B531749E9C900B82201 /* block_adapter_library_ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AE887B521749E9C900B82201 /* block_adapter_library_ios.h */; };
-		AE887B551749E9C900B82201 /* block_adapter_library_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B541749E9C900B82201 /* block_adapter_library_ios.m */; };
-		AE887B6A1749E9D900B82201 /* BAAbstractAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5A1749E9D900B82201 /* BAAbstractAdapter.m */; };
-		AE887B6B1749E9D900B82201 /* BAActionSheetBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5C1749E9D900B82201 /* BAActionSheetBlockAdapter.m */; };
-		AE887B6C1749E9DA00B82201 /* BAAlertViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5E1749E9D900B82201 /* BAAlertViewBlockAdapter.m */; };
-		AE887B6D1749E9DA00B82201 /* BABarButtonItemBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */; };
-		AE887B6F1749E9DA00B82201 /* BAButtonBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */; };
-		AE887B701749E9DA00B82201 /* BATabBarBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B671749E9D900B82201 /* BATabBarBlockAdapter.m */; };
-		AE887B711749E9DA00B82201 /* BATableViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B691749E9D900B82201 /* BATableViewBlockAdapter.m */; };
-		AECDBC141749EEE300202E72 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */; };
-		AECDBC151749EEE300202E72 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
-		AECDBC161749EEE300202E72 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */; };
-		AECDBC1C1749EEE300202E72 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AECDBC1A1749EEE300202E72 /* InfoPlist.strings */; };
-		AECDBC241749EEE300202E72 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AECDBC231749EEE300202E72 /* Default.png */; };
-		AECDBC261749EEE300202E72 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AECDBC251749EEE300202E72 /* Default@2x.png */; };
-		AECDBC281749EEE300202E72 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AECDBC271749EEE300202E72 /* Default-568h@2x.png */; };
-		AECDBC2C1749EEFC00202E72 /* BASamplesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B751749EA3900B82201 /* BASamplesAppDelegate.m */; };
-		AECDBC2D1749EEFF00202E72 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B761749EA3900B82201 /* main.m */; };
-		AECDBC2E1749EF2000202E72 /* BAActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B791749EA3900B82201 /* BAActionSheet.xib */; };
-		AECDBC2F1749EF2000202E72 /* BAActionSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B7B1749EA3900B82201 /* BAActionSheetController.m */; };
-		AECDBC301749EF2000202E72 /* BAActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B7D1749EA3900B82201 /* BAActionSheetView.m */; };
-		AECDBC311749EF2000202E72 /* BAAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B7F1749EA3900B82201 /* BAAlert.xib */; };
-		AECDBC321749EF2000202E72 /* BAAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B811749EA3900B82201 /* BAAlertController.m */; };
-		AECDBC331749EF2000202E72 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B831749EA3900B82201 /* BAAlertView.m */; };
-		AECDBC341749EF2000202E72 /* BABarButtonItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B851749EA3900B82201 /* BABarButtonItem.xib */; };
-		AECDBC351749EF2000202E72 /* BABarButtonItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B871749EA3900B82201 /* BABarButtonItemController.m */; };
-		AECDBC361749EF2000202E72 /* BABarButtonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B891749EA3900B82201 /* BABarButtonItemView.m */; };
-		AECDBC371749EF2000202E72 /* BAButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B8B1749EA3900B82201 /* BAButton.xib */; };
-		AECDBC381749EF2000202E72 /* BAButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B8D1749EA3900B82201 /* BAButtonController.m */; };
-		AECDBC391749EF2000202E72 /* BAButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B8F1749EA3900B82201 /* BAButtonView.m */; };
-		AECDBC3A1749EF2000202E72 /* BAInitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B911749EA3900B82201 /* BAInitial.xib */; };
-		AECDBC3B1749EF2000202E72 /* BAInitialController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B931749EA3900B82201 /* BAInitialController.m */; };
-		AECDBC3C1749EF2000202E72 /* BAInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B951749EA3900B82201 /* BAInitialView.m */; };
-		AECDBC3D1749EF2000202E72 /* BATableViewDelegate.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B971749EA3900B82201 /* BATableViewDelegate.xib */; };
-		AECDBC3E1749EF2000202E72 /* BATableViewDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B991749EA3900B82201 /* BATableViewDelegateController.m */; };
-		AECDBC3F1749EF2000202E72 /* BATableViewDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B9B1749EA3900B82201 /* BATableViewDelegateView.m */; };
-		AECDBC401749EF6C00202E72 /* libblock_adapter.library.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AE887B4D1749E9C900B82201 /* libblock_adapter.library.ios.a */; };
-		AECDBC421749EF7400202E72 /* libjsonbroker.library.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */; };
+		AEA176A71755ADBC00C7DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
+		AEA176AC1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEA176AB1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h */; };
+		AEA176AE1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA176AD1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m */; };
+		AEA176B21755ADC800C7DA44 /* BAAbstractAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5A1749E9D900B82201 /* BAAbstractAdapter.m */; };
+		AEA176B31755ADCB00C7DA44 /* BAActionSheetBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5C1749E9D900B82201 /* BAActionSheetBlockAdapter.m */; };
+		AEA176B41755ADCD00C7DA44 /* BAAlertViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5E1749E9D900B82201 /* BAAlertViewBlockAdapter.m */; };
+		AEA176B51755ADD100C7DA44 /* BABarButtonItemBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */; };
+		AEA176B61755ADD500C7DA44 /* BAButtonBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */; };
+		AEA176B71755ADD800C7DA44 /* BATabBarBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B671749E9D900B82201 /* BATabBarBlockAdapter.m */; };
+		AEA176B81755ADDA00C7DA44 /* BATableViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B691749E9D900B82201 /* BATableViewBlockAdapter.m */; };
+		AEA176BE1755AEB400C7DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
+		AEA176C31755AEB500C7DA44 /* block_adapter_library_ios.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEA176C21755AEB500C7DA44 /* block_adapter_library_ios.h */; };
+		AEA176C51755AEB500C7DA44 /* block_adapter_library_ios.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA176C41755AEB500C7DA44 /* block_adapter_library_ios.m */; };
+		AEA176CE1755AF5B00C7DA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */; };
+		AEA176CF1755AF5B00C7DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
+		AEA176D01755AF5B00C7DA44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */; };
+		AEA176D61755AF5B00C7DA44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEA176D41755AF5B00C7DA44 /* InfoPlist.strings */; };
+		AEA177141755B2F900C7DA44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B761749EA3900B82201 /* main.m */; };
+		AEA177151755B2FD00C7DA44 /* BASamplesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B751749EA3900B82201 /* BASamplesAppDelegate.m */; };
+		AEA177161755B30500C7DA44 /* BAActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B791749EA3900B82201 /* BAActionSheet.xib */; };
+		AEA177171755B30800C7DA44 /* BAActionSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B7B1749EA3900B82201 /* BAActionSheetController.m */; };
+		AEA177181755B30C00C7DA44 /* BAActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B7D1749EA3900B82201 /* BAActionSheetView.m */; };
+		AEA177191755B5BA00C7DA44 /* BAAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B7F1749EA3900B82201 /* BAAlert.xib */; };
+		AEA1771A1755B5C000C7DA44 /* BABarButtonItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B851749EA3900B82201 /* BABarButtonItem.xib */; };
+		AEA1771B1755B5C500C7DA44 /* BAButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B8B1749EA3900B82201 /* BAButton.xib */; };
+		AEA1771C1755B5CA00C7DA44 /* BAInitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B911749EA3900B82201 /* BAInitial.xib */; };
+		AEA1771D1755B5D000C7DA44 /* BATableViewDelegate.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B971749EA3900B82201 /* BATableViewDelegate.xib */; };
+		AEA1771E1755B5D600C7DA44 /* BAAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B811749EA3900B82201 /* BAAlertController.m */; };
+		AEA1771F1755B5DA00C7DA44 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B831749EA3900B82201 /* BAAlertView.m */; };
+		AEA177201755B63300C7DA44 /* BABarButtonItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B871749EA3900B82201 /* BABarButtonItemController.m */; };
+		AEA177211755B63700C7DA44 /* BABarButtonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B891749EA3900B82201 /* BABarButtonItemView.m */; };
+		AEA177221755B65400C7DA44 /* BAButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B8D1749EA3900B82201 /* BAButtonController.m */; };
+		AEA177231755B65800C7DA44 /* BAButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B8F1749EA3900B82201 /* BAButtonView.m */; };
+		AEA177241755B67300C7DA44 /* BAInitialController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B931749EA3900B82201 /* BAInitialController.m */; };
+		AEA177251755B67C00C7DA44 /* BAInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B951749EA3900B82201 /* BAInitialView.m */; };
+		AEA177281755B6F600C7DA44 /* libblock_adapter.library.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA176BD1755AEB400C7DA44 /* libblock_adapter.library.ios.a */; };
+		AEA177291755B71600C7DA44 /* BAAbstractAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5A1749E9D900B82201 /* BAAbstractAdapter.m */; };
+		AEA1772A1755B71900C7DA44 /* BAActionSheetBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5C1749E9D900B82201 /* BAActionSheetBlockAdapter.m */; };
+		AEA1772B1755B71C00C7DA44 /* BAAlertViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B5E1749E9D900B82201 /* BAAlertViewBlockAdapter.m */; };
+		AEA1772C1755B71F00C7DA44 /* BABarButtonItemBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */; };
+		AEA1772D1755B72400C7DA44 /* BAButtonBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */; };
+		AEA1772E1755B72700C7DA44 /* BATabBarBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B671749E9D900B82201 /* BATabBarBlockAdapter.m */; };
+		AEA1772F1755B72A00C7DA44 /* BATableViewBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B691749E9D900B82201 /* BATableViewBlockAdapter.m */; };
+		AEA177301755B78D00C7DA44 /* BATableViewDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B991749EA3900B82201 /* BATableViewDelegateController.m */; };
+		AEA177311755B78F00C7DA44 /* BATableViewDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B9B1749EA3900B82201 /* BATableViewDelegateView.m */; };
+		AEA177331755B83E00C7DA44 /* libjsonbroker.library.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA177321755B83D00C7DA44 /* libjsonbroker.library.ios.a */; };
+		AEA177391755BA3900C7DA44 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */; };
+		AEA1773A1755BA3900C7DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
+		AEA1773B1755BA3900C7DA44 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */; };
+		AEA177411755BA3900C7DA44 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = AEA1773F1755BA3900C7DA44 /* InfoPlist.strings */; };
+		AEA177491755BA3900C7DA44 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA177481755BA3900C7DA44 /* Default.png */; };
+		AEA1774B1755BA3900C7DA44 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA1774A1755BA3900C7DA44 /* Default@2x.png */; };
+		AEA1774D1755BA3900C7DA44 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = AEA1774C1755BA3900C7DA44 /* Default-568h@2x.png */; };
+		AEA177511755BAAA00C7DA44 /* BASamplesAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B751749EA3900B82201 /* BASamplesAppDelegate.m */; };
+		AEA177521755BAAD00C7DA44 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B761749EA3900B82201 /* main.m */; };
+		AEA177531755BAB500C7DA44 /* BAActionSheet.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B791749EA3900B82201 /* BAActionSheet.xib */; };
+		AEA177541755BAB500C7DA44 /* BAActionSheetController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B7B1749EA3900B82201 /* BAActionSheetController.m */; };
+		AEA177551755BAB500C7DA44 /* BAActionSheetView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B7D1749EA3900B82201 /* BAActionSheetView.m */; };
+		AEA177561755BABC00C7DA44 /* BATableViewDelegate.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B971749EA3900B82201 /* BATableViewDelegate.xib */; };
+		AEA177571755BABC00C7DA44 /* BATableViewDelegateController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B991749EA3900B82201 /* BATableViewDelegateController.m */; };
+		AEA177581755BABC00C7DA44 /* BATableViewDelegateView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B9B1749EA3900B82201 /* BATableViewDelegateView.m */; };
+		AEA177591755BAC100C7DA44 /* BAInitial.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B911749EA3900B82201 /* BAInitial.xib */; };
+		AEA1775A1755BAC100C7DA44 /* BAInitialController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B931749EA3900B82201 /* BAInitialController.m */; };
+		AEA1775B1755BAC100C7DA44 /* BAInitialView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B951749EA3900B82201 /* BAInitialView.m */; };
+		AEA1775C1755BAC700C7DA44 /* BAButton.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B8B1749EA3900B82201 /* BAButton.xib */; };
+		AEA1775D1755BAC700C7DA44 /* BAButtonController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B8D1749EA3900B82201 /* BAButtonController.m */; };
+		AEA1775E1755BAC700C7DA44 /* BAButtonView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B8F1749EA3900B82201 /* BAButtonView.m */; };
+		AEA1775F1755BAD800C7DA44 /* BABarButtonItem.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B851749EA3900B82201 /* BABarButtonItem.xib */; };
+		AEA177601755BAD800C7DA44 /* BABarButtonItemController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B871749EA3900B82201 /* BABarButtonItemController.m */; };
+		AEA177611755BAD800C7DA44 /* BABarButtonItemView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B891749EA3900B82201 /* BABarButtonItemView.m */; };
+		AEA177621755BADE00C7DA44 /* BAAlert.xib in Resources */ = {isa = PBXBuildFile; fileRef = AE887B7F1749EA3900B82201 /* BAAlert.xib */; };
+		AEA177631755BADE00C7DA44 /* BAAlertController.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B811749EA3900B82201 /* BAAlertController.m */; };
+		AEA177641755BADE00C7DA44 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B831749EA3900B82201 /* BAAlertView.m */; };
+		AEA177661755BB2500C7DA44 /* libjsonbroker.library.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA177651755BB2500C7DA44 /* libjsonbroker.library.ios.a */; };
+		AEA177671755BB2E00C7DA44 /* libblock_adapter.library.ios.non_arc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA176A61755ADBC00C7DA44 /* libblock_adapter.library.ios.non_arc.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		AE887B4B1749E9C900B82201 /* CopyFiles */ = {
+		AEA176A41755ADBC00C7DA44 /* CopyFiles */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "include/${PRODUCT_NAME}";
 			dstSubfolderSpec = 16;
 			files = (
-				AE887B531749E9C900B82201 /* block_adapter_library_ios.h in CopyFiles */,
+				AEA176AC1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA176BB1755AEB400C7DA44 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "include/${PRODUCT_NAME}";
+			dstSubfolderSpec = 16;
+			files = (
+				AEA176C31755AEB500C7DA44 /* block_adapter_library_ios.h in CopyFiles */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -65,11 +111,6 @@
 		AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AE7CBBA11745BEE0000FCA37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
-		AE7CBBDE1745BF77000FCA37 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
-		AE887B4D1749E9C900B82201 /* libblock_adapter.library.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libblock_adapter.library.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
-		AE887B511749E9C900B82201 /* block_adapter.library.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.library.ios-Prefix.pch"; sourceTree = "<group>"; };
-		AE887B521749E9C900B82201 /* block_adapter_library_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = block_adapter_library_ios.h; sourceTree = "<group>"; };
-		AE887B541749E9C900B82201 /* block_adapter_library_ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = block_adapter_library_ios.m; sourceTree = "<group>"; };
 		AE887B591749E9D900B82201 /* BAAbstractAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAbstractAdapter.h; sourceTree = "<group>"; };
 		AE887B5A1749E9D900B82201 /* BAAbstractAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAbstractAdapter.m; sourceTree = "<group>"; };
 		AE887B5B1749E9D900B82201 /* BAActionSheetBlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAActionSheetBlockAdapter.h; sourceTree = "<group>"; };
@@ -117,34 +158,67 @@
 		AE887B991749EA3900B82201 /* BATableViewDelegateController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATableViewDelegateController.m; sourceTree = "<group>"; };
 		AE887B9A1749EA3900B82201 /* BATableViewDelegateView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BATableViewDelegateView.h; sourceTree = "<group>"; };
 		AE887B9B1749EA3900B82201 /* BATableViewDelegateView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BATableViewDelegateView.m; sourceTree = "<group>"; };
-		AECDBC131749EEE300202E72 /* block_adapter.samples.ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = block_adapter.samples.ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		AECDBC191749EEE300202E72 /* block_adapter.samples.ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "block_adapter.samples.ios-Info.plist"; sourceTree = "<group>"; };
-		AECDBC1B1749EEE300202E72 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
-		AECDBC1F1749EEE300202E72 /* block_adapter.samples.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.samples.ios-Prefix.pch"; sourceTree = "<group>"; };
-		AECDBC231749EEE300202E72 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
-		AECDBC251749EEE300202E72 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
-		AECDBC271749EEE300202E72 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
+		AEA176A61755ADBC00C7DA44 /* libblock_adapter.library.ios.non_arc.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libblock_adapter.library.ios.non_arc.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA176AA1755ADBC00C7DA44 /* block_adapter.library.ios.non_arc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.library.ios.non_arc-Prefix.pch"; sourceTree = "<group>"; };
+		AEA176AB1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = block_adapter_library_ios_non_arc.h; sourceTree = "<group>"; };
+		AEA176AD1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = block_adapter_library_ios_non_arc.m; sourceTree = "<group>"; };
+		AEA176BD1755AEB400C7DA44 /* libblock_adapter.library.ios.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libblock_adapter.library.ios.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA176C11755AEB500C7DA44 /* block_adapter.library.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.library.ios-Prefix.pch"; sourceTree = "<group>"; };
+		AEA176C21755AEB500C7DA44 /* block_adapter_library_ios.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = block_adapter_library_ios.h; sourceTree = "<group>"; };
+		AEA176C41755AEB500C7DA44 /* block_adapter_library_ios.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = block_adapter_library_ios.m; sourceTree = "<group>"; };
+		AEA176CD1755AF5B00C7DA44 /* block_adapter.samples.ios.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = block_adapter.samples.ios.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA176D31755AF5B00C7DA44 /* block_adapter.samples.ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "block_adapter.samples.ios-Info.plist"; sourceTree = "<group>"; };
+		AEA176D51755AF5B00C7DA44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AEA176D91755AF5B00C7DA44 /* block_adapter.samples.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.samples.ios-Prefix.pch"; sourceTree = "<group>"; };
+		AEA177321755B83D00C7DA44 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
+		AEA177381755BA3900C7DA44 /* block_adapter.samples.ios.non_arc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = block_adapter.samples.ios.non_arc.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		AEA1773E1755BA3900C7DA44 /* block_adapter.samples.ios.non_arc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "block_adapter.samples.ios.non_arc-Info.plist"; sourceTree = "<group>"; };
+		AEA177401755BA3900C7DA44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		AEA177441755BA3900C7DA44 /* block_adapter.samples.ios.non_arc-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.samples.ios.non_arc-Prefix.pch"; sourceTree = "<group>"; };
+		AEA177481755BA3900C7DA44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
+		AEA1774A1755BA3900C7DA44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
+		AEA1774C1755BA3900C7DA44 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		AEA177651755BB2500C7DA44 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		AE887B4A1749E9C900B82201 /* Frameworks */ = {
+		AEA176A31755ADBC00C7DA44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE887B4E1749E9C900B82201 /* Foundation.framework in Frameworks */,
+				AEA176A71755ADBC00C7DA44 /* Foundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AECDBC101749EEE300202E72 /* Frameworks */ = {
+		AEA176BA1755AEB400C7DA44 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECDBC421749EF7400202E72 /* libjsonbroker.library.ios.a in Frameworks */,
-				AECDBC401749EF6C00202E72 /* libblock_adapter.library.ios.a in Frameworks */,
-				AECDBC141749EEE300202E72 /* UIKit.framework in Frameworks */,
-				AECDBC151749EEE300202E72 /* Foundation.framework in Frameworks */,
-				AECDBC161749EEE300202E72 /* CoreGraphics.framework in Frameworks */,
+				AEA176BE1755AEB400C7DA44 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA176CA1755AF5B00C7DA44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA177331755B83E00C7DA44 /* libjsonbroker.library.ios.a in Frameworks */,
+				AEA177281755B6F600C7DA44 /* libblock_adapter.library.ios.a in Frameworks */,
+				AEA176CE1755AF5B00C7DA44 /* UIKit.framework in Frameworks */,
+				AEA176CF1755AF5B00C7DA44 /* Foundation.framework in Frameworks */,
+				AEA176D01755AF5B00C7DA44 /* CoreGraphics.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA177351755BA3900C7DA44 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA177671755BB2E00C7DA44 /* libblock_adapter.library.ios.non_arc.a in Frameworks */,
+				AEA177661755BB2500C7DA44 /* libjsonbroker.library.ios.a in Frameworks */,
+				AEA177391755BA3900C7DA44 /* UIKit.framework in Frameworks */,
+				AEA1773A1755BA3900C7DA44 /* Foundation.framework in Frameworks */,
+				AEA1773B1755BA3900C7DA44 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,8 +229,10 @@
 			isa = PBXGroup;
 			children = (
 				AE7CBBBA1745BF52000FCA37 /* src */,
-				AE887B4F1749E9C900B82201 /* block_adapter.library.ios */,
-				AECDBC171749EEE300202E72 /* block_adapter.samples.ios */,
+				AEA176BF1755AEB500C7DA44 /* block_adapter.library.ios */,
+				AEA176A81755ADBC00C7DA44 /* block_adapter.library.ios.non_arc */,
+				AEA176D11755AF5B00C7DA44 /* block_adapter.samples.ios */,
+				AEA1773C1755BA3900C7DA44 /* block_adapter.samples.ios.non_arc */,
 				AE7CBB9E1745BEE0000FCA37 /* Frameworks */,
 				AE7CBB9D1745BEE0000FCA37 /* Products */,
 			);
@@ -165,8 +241,10 @@
 		AE7CBB9D1745BEE0000FCA37 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				AE887B4D1749E9C900B82201 /* libblock_adapter.library.ios.a */,
-				AECDBC131749EEE300202E72 /* block_adapter.samples.ios.app */,
+				AEA176A61755ADBC00C7DA44 /* libblock_adapter.library.ios.non_arc.a */,
+				AEA176BD1755AEB400C7DA44 /* libblock_adapter.library.ios.a */,
+				AEA176CD1755AF5B00C7DA44 /* block_adapter.samples.ios.app */,
+				AEA177381755BA3900C7DA44 /* block_adapter.samples.ios.non_arc.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -174,8 +252,8 @@
 		AE7CBB9E1745BEE0000FCA37 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				AECDBC411749EF7400202E72 /* libjsonbroker.library.ios.a */,
-				AE7CBBDE1745BF77000FCA37 /* libjsonbroker.library.ios.a */,
+				AEA177651755BB2500C7DA44 /* libjsonbroker.library.ios.a */,
+				AEA177321755B83D00C7DA44 /* libjsonbroker.library.ios.a */,
 				AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */,
 				AE7CBBA11745BEE0000FCA37 /* Foundation.framework */,
 				AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */,
@@ -211,24 +289,6 @@
 				AE887B691749E9D900B82201 /* BATableViewBlockAdapter.m */,
 			);
 			path = block_adapter.library.ios;
-			sourceTree = "<group>";
-		};
-		AE887B4F1749E9C900B82201 /* block_adapter.library.ios */ = {
-			isa = PBXGroup;
-			children = (
-				AE887B521749E9C900B82201 /* block_adapter_library_ios.h */,
-				AE887B541749E9C900B82201 /* block_adapter_library_ios.m */,
-				AE887B501749E9C900B82201 /* Supporting Files */,
-			);
-			path = block_adapter.library.ios;
-			sourceTree = "<group>";
-		};
-		AE887B501749E9C900B82201 /* Supporting Files */ = {
-			isa = PBXGroup;
-			children = (
-				AE887B511749E9C900B82201 /* block_adapter.library.ios-Prefix.pch */,
-			);
-			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		AE887B721749EA3900B82201 /* block_adapter.samples.ios */ = {
@@ -335,23 +395,77 @@
 			path = table_view_delegate;
 			sourceTree = "<group>";
 		};
-		AECDBC171749EEE300202E72 /* block_adapter.samples.ios */ = {
+		AEA176A81755ADBC00C7DA44 /* block_adapter.library.ios.non_arc */ = {
 			isa = PBXGroup;
 			children = (
-				AECDBC181749EEE300202E72 /* Supporting Files */,
+				AEA176AB1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h */,
+				AEA176AD1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m */,
+				AEA176A91755ADBC00C7DA44 /* Supporting Files */,
+			);
+			path = block_adapter.library.ios.non_arc;
+			sourceTree = "<group>";
+		};
+		AEA176A91755ADBC00C7DA44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEA176AA1755ADBC00C7DA44 /* block_adapter.library.ios.non_arc-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEA176BF1755AEB500C7DA44 /* block_adapter.library.ios */ = {
+			isa = PBXGroup;
+			children = (
+				AEA176C21755AEB500C7DA44 /* block_adapter_library_ios.h */,
+				AEA176C41755AEB500C7DA44 /* block_adapter_library_ios.m */,
+				AEA176C01755AEB500C7DA44 /* Supporting Files */,
+			);
+			path = block_adapter.library.ios;
+			sourceTree = "<group>";
+		};
+		AEA176C01755AEB500C7DA44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEA176C11755AEB500C7DA44 /* block_adapter.library.ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEA176D11755AF5B00C7DA44 /* block_adapter.samples.ios */ = {
+			isa = PBXGroup;
+			children = (
+				AEA176D21755AF5B00C7DA44 /* Supporting Files */,
 			);
 			path = block_adapter.samples.ios;
 			sourceTree = "<group>";
 		};
-		AECDBC181749EEE300202E72 /* Supporting Files */ = {
+		AEA176D21755AF5B00C7DA44 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
-				AECDBC191749EEE300202E72 /* block_adapter.samples.ios-Info.plist */,
-				AECDBC1A1749EEE300202E72 /* InfoPlist.strings */,
-				AECDBC1F1749EEE300202E72 /* block_adapter.samples.ios-Prefix.pch */,
-				AECDBC231749EEE300202E72 /* Default.png */,
-				AECDBC251749EEE300202E72 /* Default@2x.png */,
-				AECDBC271749EEE300202E72 /* Default-568h@2x.png */,
+				AEA176D31755AF5B00C7DA44 /* block_adapter.samples.ios-Info.plist */,
+				AEA176D41755AF5B00C7DA44 /* InfoPlist.strings */,
+				AEA176D91755AF5B00C7DA44 /* block_adapter.samples.ios-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		AEA1773C1755BA3900C7DA44 /* block_adapter.samples.ios.non_arc */ = {
+			isa = PBXGroup;
+			children = (
+				AEA1773D1755BA3900C7DA44 /* Supporting Files */,
+			);
+			path = block_adapter.samples.ios.non_arc;
+			sourceTree = "<group>";
+		};
+		AEA1773D1755BA3900C7DA44 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				AEA1773E1755BA3900C7DA44 /* block_adapter.samples.ios.non_arc-Info.plist */,
+				AEA1773F1755BA3900C7DA44 /* InfoPlist.strings */,
+				AEA177441755BA3900C7DA44 /* block_adapter.samples.ios.non_arc-Prefix.pch */,
+				AEA177481755BA3900C7DA44 /* Default.png */,
+				AEA1774A1755BA3900C7DA44 /* Default@2x.png */,
+				AEA1774C1755BA3900C7DA44 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -359,13 +473,30 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		AE887B4C1749E9C900B82201 /* block_adapter.library.ios */ = {
+		AEA176A51755ADBC00C7DA44 /* block_adapter.library.ios.non_arc */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AE887B561749E9C900B82201 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios" */;
+			buildConfigurationList = AEA176AF1755ADBC00C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios.non_arc" */;
 			buildPhases = (
-				AE887B491749E9C900B82201 /* Sources */,
-				AE887B4A1749E9C900B82201 /* Frameworks */,
-				AE887B4B1749E9C900B82201 /* CopyFiles */,
+				AEA176A21755ADBC00C7DA44 /* Sources */,
+				AEA176A31755ADBC00C7DA44 /* Frameworks */,
+				AEA176A41755ADBC00C7DA44 /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = block_adapter.library.ios.non_arc;
+			productName = block_adapter.library.ios.non_arc;
+			productReference = AEA176A61755ADBC00C7DA44 /* libblock_adapter.library.ios.non_arc.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		AEA176BC1755AEB400C7DA44 /* block_adapter.library.ios */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEA176C61755AEB500C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios" */;
+			buildPhases = (
+				AEA176B91755AEB400C7DA44 /* Sources */,
+				AEA176BA1755AEB400C7DA44 /* Frameworks */,
+				AEA176BB1755AEB400C7DA44 /* CopyFiles */,
 			);
 			buildRules = (
 			);
@@ -373,16 +504,16 @@
 			);
 			name = block_adapter.library.ios;
 			productName = block_adapter.library.ios;
-			productReference = AE887B4D1749E9C900B82201 /* libblock_adapter.library.ios.a */;
+			productReference = AEA176BD1755AEB400C7DA44 /* libblock_adapter.library.ios.a */;
 			productType = "com.apple.product-type.library.static";
 		};
-		AECDBC121749EEE300202E72 /* block_adapter.samples.ios */ = {
+		AEA176CC1755AF5B00C7DA44 /* block_adapter.samples.ios */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = AECDBC291749EEE300202E72 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios" */;
+			buildConfigurationList = AEA176DD1755AF5B00C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios" */;
 			buildPhases = (
-				AECDBC0F1749EEE300202E72 /* Sources */,
-				AECDBC101749EEE300202E72 /* Frameworks */,
-				AECDBC111749EEE300202E72 /* Resources */,
+				AEA176C91755AF5B00C7DA44 /* Sources */,
+				AEA176CA1755AF5B00C7DA44 /* Frameworks */,
+				AEA176CB1755AF5B00C7DA44 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -390,7 +521,24 @@
 			);
 			name = block_adapter.samples.ios;
 			productName = block_adapter.samples.ios;
-			productReference = AECDBC131749EEE300202E72 /* block_adapter.samples.ios.app */;
+			productReference = AEA176CD1755AF5B00C7DA44 /* block_adapter.samples.ios.app */;
+			productType = "com.apple.product-type.application";
+		};
+		AEA177371755BA3900C7DA44 /* block_adapter.samples.ios.non_arc */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = AEA1774E1755BA3900C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios.non_arc" */;
+			buildPhases = (
+				AEA177341755BA3900C7DA44 /* Sources */,
+				AEA177351755BA3900C7DA44 /* Frameworks */,
+				AEA177361755BA3900C7DA44 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = block_adapter.samples.ios.non_arc;
+			productName = block_adapter.samples.ios.non_arc;
+			productReference = AEA177381755BA3900C7DA44 /* block_adapter.samples.ios.non_arc.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -413,76 +561,136 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				AE887B4C1749E9C900B82201 /* block_adapter.library.ios */,
-				AECDBC121749EEE300202E72 /* block_adapter.samples.ios */,
+				AEA176BC1755AEB400C7DA44 /* block_adapter.library.ios */,
+				AEA176A51755ADBC00C7DA44 /* block_adapter.library.ios.non_arc */,
+				AEA176CC1755AF5B00C7DA44 /* block_adapter.samples.ios */,
+				AEA177371755BA3900C7DA44 /* block_adapter.samples.ios.non_arc */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		AECDBC111749EEE300202E72 /* Resources */ = {
+		AEA176CB1755AF5B00C7DA44 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECDBC1C1749EEE300202E72 /* InfoPlist.strings in Resources */,
-				AECDBC241749EEE300202E72 /* Default.png in Resources */,
-				AECDBC261749EEE300202E72 /* Default@2x.png in Resources */,
-				AECDBC281749EEE300202E72 /* Default-568h@2x.png in Resources */,
-				AECDBC2E1749EF2000202E72 /* BAActionSheet.xib in Resources */,
-				AECDBC311749EF2000202E72 /* BAAlert.xib in Resources */,
-				AECDBC341749EF2000202E72 /* BABarButtonItem.xib in Resources */,
-				AECDBC371749EF2000202E72 /* BAButton.xib in Resources */,
-				AECDBC3A1749EF2000202E72 /* BAInitial.xib in Resources */,
-				AECDBC3D1749EF2000202E72 /* BATableViewDelegate.xib in Resources */,
+				AEA176D61755AF5B00C7DA44 /* InfoPlist.strings in Resources */,
+				AEA177161755B30500C7DA44 /* BAActionSheet.xib in Resources */,
+				AEA177191755B5BA00C7DA44 /* BAAlert.xib in Resources */,
+				AEA1771A1755B5C000C7DA44 /* BABarButtonItem.xib in Resources */,
+				AEA1771B1755B5C500C7DA44 /* BAButton.xib in Resources */,
+				AEA1771C1755B5CA00C7DA44 /* BAInitial.xib in Resources */,
+				AEA1771D1755B5D000C7DA44 /* BATableViewDelegate.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA177361755BA3900C7DA44 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA177411755BA3900C7DA44 /* InfoPlist.strings in Resources */,
+				AEA177491755BA3900C7DA44 /* Default.png in Resources */,
+				AEA1774B1755BA3900C7DA44 /* Default@2x.png in Resources */,
+				AEA1774D1755BA3900C7DA44 /* Default-568h@2x.png in Resources */,
+				AEA177531755BAB500C7DA44 /* BAActionSheet.xib in Resources */,
+				AEA177561755BABC00C7DA44 /* BATableViewDelegate.xib in Resources */,
+				AEA177591755BAC100C7DA44 /* BAInitial.xib in Resources */,
+				AEA1775C1755BAC700C7DA44 /* BAButton.xib in Resources */,
+				AEA1775F1755BAD800C7DA44 /* BABarButtonItem.xib in Resources */,
+				AEA177621755BADE00C7DA44 /* BAAlert.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		AE887B491749E9C900B82201 /* Sources */ = {
+		AEA176A21755ADBC00C7DA44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AE887B551749E9C900B82201 /* block_adapter_library_ios.m in Sources */,
-				AE887B6A1749E9D900B82201 /* BAAbstractAdapter.m in Sources */,
-				AE887B6B1749E9D900B82201 /* BAActionSheetBlockAdapter.m in Sources */,
-				AE887B6C1749E9DA00B82201 /* BAAlertViewBlockAdapter.m in Sources */,
-				AE887B6D1749E9DA00B82201 /* BABarButtonItemBlockAdapter.m in Sources */,
-				AE887B6F1749E9DA00B82201 /* BAButtonBlockAdapter.m in Sources */,
-				AE887B701749E9DA00B82201 /* BATabBarBlockAdapter.m in Sources */,
-				AE887B711749E9DA00B82201 /* BATableViewBlockAdapter.m in Sources */,
+				AEA176AE1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m in Sources */,
+				AEA176B21755ADC800C7DA44 /* BAAbstractAdapter.m in Sources */,
+				AEA176B31755ADCB00C7DA44 /* BAActionSheetBlockAdapter.m in Sources */,
+				AEA176B41755ADCD00C7DA44 /* BAAlertViewBlockAdapter.m in Sources */,
+				AEA176B51755ADD100C7DA44 /* BABarButtonItemBlockAdapter.m in Sources */,
+				AEA176B61755ADD500C7DA44 /* BAButtonBlockAdapter.m in Sources */,
+				AEA176B71755ADD800C7DA44 /* BATabBarBlockAdapter.m in Sources */,
+				AEA176B81755ADDA00C7DA44 /* BATableViewBlockAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		AECDBC0F1749EEE300202E72 /* Sources */ = {
+		AEA176B91755AEB400C7DA44 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AECDBC2C1749EEFC00202E72 /* BASamplesAppDelegate.m in Sources */,
-				AECDBC2D1749EEFF00202E72 /* main.m in Sources */,
-				AECDBC2F1749EF2000202E72 /* BAActionSheetController.m in Sources */,
-				AECDBC301749EF2000202E72 /* BAActionSheetView.m in Sources */,
-				AECDBC321749EF2000202E72 /* BAAlertController.m in Sources */,
-				AECDBC331749EF2000202E72 /* BAAlertView.m in Sources */,
-				AECDBC351749EF2000202E72 /* BABarButtonItemController.m in Sources */,
-				AECDBC361749EF2000202E72 /* BABarButtonItemView.m in Sources */,
-				AECDBC381749EF2000202E72 /* BAButtonController.m in Sources */,
-				AECDBC391749EF2000202E72 /* BAButtonView.m in Sources */,
-				AECDBC3B1749EF2000202E72 /* BAInitialController.m in Sources */,
-				AECDBC3C1749EF2000202E72 /* BAInitialView.m in Sources */,
-				AECDBC3E1749EF2000202E72 /* BATableViewDelegateController.m in Sources */,
-				AECDBC3F1749EF2000202E72 /* BATableViewDelegateView.m in Sources */,
+				AEA176C51755AEB500C7DA44 /* block_adapter_library_ios.m in Sources */,
+				AEA177291755B71600C7DA44 /* BAAbstractAdapter.m in Sources */,
+				AEA1772A1755B71900C7DA44 /* BAActionSheetBlockAdapter.m in Sources */,
+				AEA1772B1755B71C00C7DA44 /* BAAlertViewBlockAdapter.m in Sources */,
+				AEA1772C1755B71F00C7DA44 /* BABarButtonItemBlockAdapter.m in Sources */,
+				AEA1772D1755B72400C7DA44 /* BAButtonBlockAdapter.m in Sources */,
+				AEA1772E1755B72700C7DA44 /* BATabBarBlockAdapter.m in Sources */,
+				AEA1772F1755B72A00C7DA44 /* BATableViewBlockAdapter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA176C91755AF5B00C7DA44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA177141755B2F900C7DA44 /* main.m in Sources */,
+				AEA177151755B2FD00C7DA44 /* BASamplesAppDelegate.m in Sources */,
+				AEA177171755B30800C7DA44 /* BAActionSheetController.m in Sources */,
+				AEA177181755B30C00C7DA44 /* BAActionSheetView.m in Sources */,
+				AEA1771E1755B5D600C7DA44 /* BAAlertController.m in Sources */,
+				AEA1771F1755B5DA00C7DA44 /* BAAlertView.m in Sources */,
+				AEA177201755B63300C7DA44 /* BABarButtonItemController.m in Sources */,
+				AEA177211755B63700C7DA44 /* BABarButtonItemView.m in Sources */,
+				AEA177221755B65400C7DA44 /* BAButtonController.m in Sources */,
+				AEA177231755B65800C7DA44 /* BAButtonView.m in Sources */,
+				AEA177241755B67300C7DA44 /* BAInitialController.m in Sources */,
+				AEA177251755B67C00C7DA44 /* BAInitialView.m in Sources */,
+				AEA177301755B78D00C7DA44 /* BATableViewDelegateController.m in Sources */,
+				AEA177311755B78F00C7DA44 /* BATableViewDelegateView.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		AEA177341755BA3900C7DA44 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AEA177511755BAAA00C7DA44 /* BASamplesAppDelegate.m in Sources */,
+				AEA177521755BAAD00C7DA44 /* main.m in Sources */,
+				AEA177541755BAB500C7DA44 /* BAActionSheetController.m in Sources */,
+				AEA177551755BAB500C7DA44 /* BAActionSheetView.m in Sources */,
+				AEA177571755BABC00C7DA44 /* BATableViewDelegateController.m in Sources */,
+				AEA177581755BABC00C7DA44 /* BATableViewDelegateView.m in Sources */,
+				AEA1775A1755BAC100C7DA44 /* BAInitialController.m in Sources */,
+				AEA1775B1755BAC100C7DA44 /* BAInitialView.m in Sources */,
+				AEA1775D1755BAC700C7DA44 /* BAButtonController.m in Sources */,
+				AEA1775E1755BAC700C7DA44 /* BAButtonView.m in Sources */,
+				AEA177601755BAD800C7DA44 /* BABarButtonItemController.m in Sources */,
+				AEA177611755BAD800C7DA44 /* BABarButtonItemView.m in Sources */,
+				AEA177631755BADE00C7DA44 /* BAAlertController.m in Sources */,
+				AEA177641755BADE00C7DA44 /* BAAlertView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXVariantGroup section */
-		AECDBC1A1749EEE300202E72 /* InfoPlist.strings */ = {
+		AEA176D41755AF5B00C7DA44 /* InfoPlist.strings */ = {
 			isa = PBXVariantGroup;
 			children = (
-				AECDBC1B1749EEE300202E72 /* en */,
+				AEA176D51755AF5B00C7DA44 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		AEA1773F1755BA3900C7DA44 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				AEA177401755BA3900C7DA44 /* en */,
 			);
 			name = InfoPlist.strings;
 			sourceTree = "<group>";
@@ -502,12 +710,86 @@
 			};
 			name = Release;
 		};
-		AE887B571749E9C900B82201 /* Debug */ = {
+		AEA176B01755ADBC00C7DA44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/block_adapter_library_ios_non_arc.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "block_adapter.library.ios.non_arc/block_adapter.library.ios.non_arc-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "user-headers/**";
+			};
+			name = Debug;
+		};
+		AEA176B11755ADBC00C7DA44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/block_adapter_library_ios_non_arc.dst;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "block_adapter.library.ios.non_arc/block_adapter.library.ios.non_arc-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				USER_HEADER_SEARCH_PATHS = "user-headers/**";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		AEA176C71755AEB500C7DA44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -542,12 +824,13 @@
 			};
 			name = Debug;
 		};
-		AE887B581749E9C900B82201 /* Release */ = {
+		AEA176C81755AEB500C7DA44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -575,12 +858,13 @@
 			};
 			name = Release;
 		};
-		AECDBC2A1749EEE300202E72 /* Debug */ = {
+		AEA176DE1755AF5B00C7DA44 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -616,12 +900,13 @@
 			};
 			name = Debug;
 		};
-		AECDBC2B1749EEE300202E72 /* Release */ = {
+		AEA176DF1755AF5B00C7DA44 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
 				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_OBJC_ARC = YES;
 				CLANG_WARN_CONSTANT_CONVERSION = YES;
 				CLANG_WARN_EMPTY_BODY = YES;
 				CLANG_WARN_ENUM_CONVERSION = YES;
@@ -651,6 +936,82 @@
 			};
 			name = Release;
 		};
+		AEA1774F1755BA3900C7DA44 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "block_adapter.samples.ios.non_arc/block_adapter.samples.ios.non_arc-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "block_adapter.samples.ios.non_arc/block_adapter.samples.ios.non_arc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "user-headers/**";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		AEA177501755BA3900C7DA44 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
+				);
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "block_adapter.samples.ios.non_arc/block_adapter.samples.ios.non_arc-Prefix.pch";
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				INFOPLIST_FILE = "block_adapter.samples.ios.non_arc/block_adapter.samples.ios.non_arc-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				USER_HEADER_SEARCH_PATHS = "user-headers/**";
+				VALIDATE_PRODUCT = YES;
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -663,23 +1024,37 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		AE887B561749E9C900B82201 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios" */ = {
+		AEA176AF1755ADBC00C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios.non_arc" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AE887B571749E9C900B82201 /* Debug */,
-				AE887B581749E9C900B82201 /* Release */,
+				AEA176B01755ADBC00C7DA44 /* Debug */,
+				AEA176B11755ADBC00C7DA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
 		};
-		AECDBC291749EEE300202E72 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios" */ = {
+		AEA176C61755AEB500C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				AECDBC2A1749EEE300202E72 /* Debug */,
-				AECDBC2B1749EEE300202E72 /* Release */,
+				AEA176C71755AEB500C7DA44 /* Debug */,
+				AEA176C81755AEB500C7DA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
+		};
+		AEA176DD1755AF5B00C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEA176DE1755AF5B00C7DA44 /* Debug */,
+				AEA176DF1755AF5B00C7DA44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		AEA1774E1755BA3900C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios.non_arc" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				AEA1774F1755BA3900C7DA44 /* Debug */,
+				AEA177501755BA3900C7DA44 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

@@ -6,6 +6,7 @@
 
 #import "BAInitialView.h"
 #import "JBLog.h"
+#import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -65,8 +66,8 @@
 	[self setTableViewDelegate:nil];
 	[self setBarButtonItem:nil];
 
-	
-	[super dealloc];
+    JBSuperDealloc();
+	//[super dealloc];
 	
 }
 

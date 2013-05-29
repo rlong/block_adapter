@@ -5,6 +5,8 @@
 
 
 #import "JBLog.h"
+#import "JBMemoryModel.h"
+
 #import "BATableViewDelegateView.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -61,8 +63,8 @@
     [self setAsyncBlockTableView:nil];
 	[self setTabBar:nil];
 
-
-	[super dealloc];
+    JBSuperDealloc();
+	//[super dealloc];
 	
 }
 

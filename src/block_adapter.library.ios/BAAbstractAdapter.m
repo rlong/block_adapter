@@ -3,8 +3,11 @@
 // Released under the MIT license ( http://opensource.org/licenses/MIT )
 //
 
+
 #import "BAAbstractAdapter.h"
+
 #import "JBLog.h"
+#import "JBMemoryModel.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -66,7 +69,7 @@
     [self setAsyncTaskDone:nil];
 	[self setAsyncTaskFailed:nil];
 	
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

@@ -9,6 +9,7 @@
 #import "JBBlockJob.h"
 #import "JBLog.h"
 #import "JBWorkManager.h"
+#import "JBMemoryModel.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -43,9 +44,8 @@
 
 
     BAAlertViewBlockAdapter* answer = [[BAAlertViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    
-    
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     return answer;
 
@@ -56,9 +56,8 @@
 +(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAAlertViewBlockAdapter* answer = [[BAAlertViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
-    
-    
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     return answer;
     
@@ -82,7 +81,8 @@
         {
             [JBWorkManager enqueue:job];
         }
-        [job release];
+        JBRelease(job);
+        //[job release];
     }
     
 }
@@ -129,7 +129,7 @@
 	[self setClient:nil];
     [self setAdaptee:nil];
 
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

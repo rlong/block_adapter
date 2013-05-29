@@ -9,6 +9,7 @@
 #import "JBBlockJob.h"
 #import "JBLog.h"
 #import "JBWorkManager.h"
+#import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -41,9 +42,8 @@
     
     
     BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    
-    
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     return answer;
     
@@ -54,8 +54,8 @@
 +(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
-    
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     return answer;
     
@@ -76,7 +76,8 @@
         {
             [JBWorkManager enqueue:job];
         }
-        [job release];
+        JBRelease(job);
+        //[job release];
     }
     
     
@@ -115,11 +116,8 @@
         [answer setAdaptee:adaptee];
         
         [client setDelegate:answer];
-        
     }
-    
     return answer;
-    
     
 }
 
@@ -131,7 +129,7 @@
 	[self setClient:nil];
     [self setAdaptee:nil];
 
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

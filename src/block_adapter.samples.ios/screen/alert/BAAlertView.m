@@ -6,6 +6,7 @@
 
 #import "BAAlertView.h"
 #import "JBLog.h"
+#import "JBMemoryModel.h"
 
 
 
@@ -63,7 +64,7 @@
     [self setBlockAlert:nil];
 	[self setAsyncBlockAlert:nil];
 
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 

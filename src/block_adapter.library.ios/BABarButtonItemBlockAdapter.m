@@ -8,6 +8,7 @@
 
 #import "JBBlockJob.h"
 #import "JBWorkManager.h"
+#import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
@@ -47,7 +48,8 @@
         {
             [JBWorkManager enqueue:job];
         }
-        [job release];
+        JBRelease( job);
+        //[job release];
     }
     
 }
@@ -56,7 +58,8 @@
 +(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee {
     
     BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
-    [answer autorelease];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     return answer;
 }
@@ -64,11 +67,12 @@
 +(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client
-                                                                        adaptee:adaptee
-                                                                      asyncBlock:asyncTask
-                                                                  asyncBlockDone:asyncTaskDone
-                                                                asyncBlockFailed:asyncTaskFailed];
-    [answer autorelease];
+                                                                                      adaptee:adaptee
+                                                                                   asyncBlock:asyncTask
+                                                                               asyncBlockDone:asyncTaskDone
+                                                                             asyncBlockFailed:asyncTaskFailed];
+    JBAutorelease(answer);
+    //[answer autorelease];
     
     
     return answer;
@@ -124,7 +128,7 @@
     [self setAdaptee:nil];
 
 	
-	[super dealloc];
+    JBSuperDealloc();
 	
 }
 
