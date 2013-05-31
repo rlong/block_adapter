@@ -33,7 +33,7 @@
     {
         id adapter = [BAActionSheetBlockAdapter
                       adapterWithClient:actionSheet
-                      adaptee:(id)^(UIActionSheet* actionSheet, NSInteger buttonIndex) {
+                      adaptee:^id(UIActionSheet* actionSheet, NSInteger buttonIndex) {
                           
                           Log_debugInt( buttonIndex );
                           return nil;
@@ -65,15 +65,15 @@
 
         id adapter = [BAActionSheetBlockAdapter
                       adapterWithClient:actionSheet
-                      adaptee:(id)^(UIActionSheet* actionSheet, NSInteger buttonIndex) {
+                      adaptee:^id(UIActionSheet* actionSheet, NSInteger buttonIndex) {
                           selectedButtonIndex = buttonIndex;
                           return nil;
                       }
-                      asyncBlock:(id)^(id adapteeResponse) {
+                      asyncBlock:^id(id adapteeResponse) {
                           Log_debugInt( selectedButtonIndex );
                           return nil;
                       }
-                      afterAsyncBlockDone:(id)^(id adapteeResponse) {
+                      afterAsyncBlockDone:^(id adapteeResponse, id asyncBlockResponse) {
                           Log_debugInt( selectedButtonIndex );
                       }
                       afterAsyncBlockFailed:nil];
@@ -108,7 +108,6 @@
         
     }
     JBRelease(actionSheet);
-    //[actionSheet release];
 
     
 }
@@ -141,7 +140,7 @@
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView blockActionSheet]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           [self onBlockActionSheet];
                           return nil;
@@ -157,7 +156,7 @@
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView asyncBlockActionSheet]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           [self onAsyncBlockActionSheet];
                           return nil;

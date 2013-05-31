@@ -12,7 +12,7 @@
 
 
 
-typedef id(^JBAlertViewDelegate)(UIAlertView* alertView, NSInteger buttonIndex);
+typedef id(^BAAlertViewAdaptee)(UIAlertView* alertView, NSInteger buttonIndex);
 
 
 @interface BAAlertViewBlockAdapter : BAAbstractAdapter {
@@ -25,7 +25,7 @@ typedef id(^JBAlertViewDelegate)(UIAlertView* alertView, NSInteger buttonIndex);
     
     
     // adaptee
-    JBAlertViewDelegate _adaptee;
+    BAAlertViewAdaptee _adaptee;
     //@property (nonatomic, copy) AlertViewDelegate adaptee;
     //@synthesize adaptee = _adaptee;
 
@@ -33,14 +33,14 @@ typedef id(^JBAlertViewDelegate)(UIAlertView* alertView, NSInteger buttonIndex);
     
 }
 
-+(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee;
++(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(BAAlertViewAdaptee)adaptee;
 
-+(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
++(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(BAAlertViewAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
 
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIAlertView*)client adaptee:(JBAlertViewDelegate)adaptee;
--(id)initWithClient:(UIAlertView*)client adaptee:(JBAlertViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithClient:(UIAlertView*)client adaptee:(BAAlertViewAdaptee)adaptee;
+-(id)initWithClient:(UIAlertView*)client adaptee:(BAAlertViewAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE85161C1755D573005514C0 /* BAPickerBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */; };
+		AE85161D1755D573005514C0 /* BAPickerBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */; };
 		AEA176A71755ADBC00C7DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
 		AEA176AC1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = AEA176AB1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.h */; };
 		AEA176AE1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA176AD1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m */; };
@@ -82,6 +84,12 @@
 		AEA177641755BADE00C7DA44 /* BAAlertView.m in Sources */ = {isa = PBXBuildFile; fileRef = AE887B831749EA3900B82201 /* BAAlertView.m */; };
 		AEA177661755BB2500C7DA44 /* libjsonbroker.library.ios.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA177651755BB2500C7DA44 /* libjsonbroker.library.ios.a */; };
 		AEA177671755BB2E00C7DA44 /* libblock_adapter.library.ios.non_arc.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AEA176A61755ADBC00C7DA44 /* libblock_adapter.library.ios.non_arc.a */; };
+		AEA1776B1755BD1C00C7DA44 /* BAPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA1776A1755BD1C00C7DA44 /* BAPickerController.m */; };
+		AEA1776C1755BD1C00C7DA44 /* BAPickerController.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA1776A1755BD1C00C7DA44 /* BAPickerController.m */; };
+		AEA1776F1755BD2B00C7DA44 /* BAPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA1776E1755BD2B00C7DA44 /* BAPickerView.m */; };
+		AEA177701755BD2B00C7DA44 /* BAPickerView.m in Sources */ = {isa = PBXBuildFile; fileRef = AEA1776E1755BD2B00C7DA44 /* BAPickerView.m */; };
+		AEA177721755BE1100C7DA44 /* BAPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA177711755BE1100C7DA44 /* BAPicker.xib */; };
+		AEA177731755BE1100C7DA44 /* BAPicker.xib in Resources */ = {isa = PBXBuildFile; fileRef = AEA177711755BE1100C7DA44 /* BAPicker.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -111,6 +119,8 @@
 		AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AE7CBBA11745BEE0000FCA37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		AE85161A1755D573005514C0 /* BAPickerBlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPickerBlockAdapter.h; sourceTree = "<group>"; };
+		AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPickerBlockAdapter.m; sourceTree = "<group>"; };
 		AE887B591749E9D900B82201 /* BAAbstractAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAAbstractAdapter.h; sourceTree = "<group>"; };
 		AE887B5A1749E9D900B82201 /* BAAbstractAdapter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAAbstractAdapter.m; sourceTree = "<group>"; };
 		AE887B5B1749E9D900B82201 /* BAActionSheetBlockAdapter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAActionSheetBlockAdapter.h; sourceTree = "<group>"; };
@@ -170,7 +180,7 @@
 		AEA176D31755AF5B00C7DA44 /* block_adapter.samples.ios-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "block_adapter.samples.ios-Info.plist"; sourceTree = "<group>"; };
 		AEA176D51755AF5B00C7DA44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		AEA176D91755AF5B00C7DA44 /* block_adapter.samples.ios-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "block_adapter.samples.ios-Prefix.pch"; sourceTree = "<group>"; };
-		AEA177321755B83D00C7DA44 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
+		AEA177321755B83D00C7DA44 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
 		AEA177381755BA3900C7DA44 /* block_adapter.samples.ios.non_arc.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = block_adapter.samples.ios.non_arc.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AEA1773E1755BA3900C7DA44 /* block_adapter.samples.ios.non_arc-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "block_adapter.samples.ios.non_arc-Info.plist"; sourceTree = "<group>"; };
 		AEA177401755BA3900C7DA44 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
@@ -178,7 +188,12 @@
 		AEA177481755BA3900C7DA44 /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		AEA1774A1755BA3900C7DA44 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		AEA1774C1755BA3900C7DA44 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
-		AEA177651755BB2500C7DA44 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = file; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
+		AEA177651755BB2500C7DA44 /* libjsonbroker.library.ios.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libjsonbroker.library.ios.a; path = "../jsonbroker/build/Release-iphoneos/libjsonbroker.library.ios.a"; sourceTree = "<group>"; };
+		AEA177691755BD1C00C7DA44 /* BAPickerController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPickerController.h; sourceTree = "<group>"; };
+		AEA1776A1755BD1C00C7DA44 /* BAPickerController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPickerController.m; sourceTree = "<group>"; };
+		AEA1776D1755BD2B00C7DA44 /* BAPickerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPickerView.h; sourceTree = "<group>"; };
+		AEA1776E1755BD2B00C7DA44 /* BAPickerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPickerView.m; sourceTree = "<group>"; };
+		AEA177711755BE1100C7DA44 /* BAPicker.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BAPicker.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +298,8 @@
 				AE887B601749E9D900B82201 /* BABarButtonItemBlockAdapter.m */,
 				AE887B641749E9D900B82201 /* BAButtonBlockAdapter.h */,
 				AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */,
+				AE85161A1755D573005514C0 /* BAPickerBlockAdapter.h */,
+				AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */,
 				AE887B661749E9D900B82201 /* BATabBarBlockAdapter.h */,
 				AE887B671749E9D900B82201 /* BATabBarBlockAdapter.m */,
 				AE887B681749E9D900B82201 /* BATableViewBlockAdapter.h */,
@@ -318,6 +335,7 @@
 				AE887B841749EA3900B82201 /* bar_button_item */,
 				AE887B8A1749EA3900B82201 /* button */,
 				AE887B901749EA3900B82201 /* initial */,
+				AEA177681755BC9200C7DA44 /* picker */,
 				AE887B961749EA3900B82201 /* table_view_delegate */,
 			);
 			path = screen;
@@ -470,6 +488,18 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
+		AEA177681755BC9200C7DA44 /* picker */ = {
+			isa = PBXGroup;
+			children = (
+				AEA177711755BE1100C7DA44 /* BAPicker.xib */,
+				AEA177691755BD1C00C7DA44 /* BAPickerController.h */,
+				AEA1776A1755BD1C00C7DA44 /* BAPickerController.m */,
+				AEA1776D1755BD2B00C7DA44 /* BAPickerView.h */,
+				AEA1776E1755BD2B00C7DA44 /* BAPickerView.m */,
+			);
+			path = picker;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -581,6 +611,7 @@
 				AEA1771B1755B5C500C7DA44 /* BAButton.xib in Resources */,
 				AEA1771C1755B5CA00C7DA44 /* BAInitial.xib in Resources */,
 				AEA1771D1755B5D000C7DA44 /* BATableViewDelegate.xib in Resources */,
+				AEA177721755BE1100C7DA44 /* BAPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -598,6 +629,7 @@
 				AEA1775C1755BAC700C7DA44 /* BAButton.xib in Resources */,
 				AEA1775F1755BAD800C7DA44 /* BABarButtonItem.xib in Resources */,
 				AEA177621755BADE00C7DA44 /* BAAlert.xib in Resources */,
+				AEA177731755BE1100C7DA44 /* BAPicker.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -616,6 +648,7 @@
 				AEA176B61755ADD500C7DA44 /* BAButtonBlockAdapter.m in Sources */,
 				AEA176B71755ADD800C7DA44 /* BATabBarBlockAdapter.m in Sources */,
 				AEA176B81755ADDA00C7DA44 /* BATableViewBlockAdapter.m in Sources */,
+				AE85161D1755D573005514C0 /* BAPickerBlockAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -631,6 +664,7 @@
 				AEA1772D1755B72400C7DA44 /* BAButtonBlockAdapter.m in Sources */,
 				AEA1772E1755B72700C7DA44 /* BATabBarBlockAdapter.m in Sources */,
 				AEA1772F1755B72A00C7DA44 /* BATableViewBlockAdapter.m in Sources */,
+				AE85161C1755D573005514C0 /* BAPickerBlockAdapter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -652,6 +686,8 @@
 				AEA177251755B67C00C7DA44 /* BAInitialView.m in Sources */,
 				AEA177301755B78D00C7DA44 /* BATableViewDelegateController.m in Sources */,
 				AEA177311755B78F00C7DA44 /* BATableViewDelegateView.m in Sources */,
+				AEA1776B1755BD1C00C7DA44 /* BAPickerController.m in Sources */,
+				AEA1776F1755BD2B00C7DA44 /* BAPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -673,6 +709,8 @@
 				AEA177611755BAD800C7DA44 /* BABarButtonItemView.m in Sources */,
 				AEA177631755BADE00C7DA44 /* BAAlertController.m in Sources */,
 				AEA177641755BADE00C7DA44 /* BAAlertView.m in Sources */,
+				AEA1776C1755BD1C00C7DA44 /* BAPickerController.m in Sources */,
+				AEA177701755BD2B00C7DA44 /* BAPickerView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1031,6 +1069,7 @@
 				AEA176B11755ADBC00C7DA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEA176C61755AEB500C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.library.ios" */ = {
 			isa = XCConfigurationList;
@@ -1039,6 +1078,7 @@
 				AEA176C81755AEB500C7DA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEA176DD1755AF5B00C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios" */ = {
 			isa = XCConfigurationList;
@@ -1047,6 +1087,7 @@
 				AEA176DF1755AF5B00C7DA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		AEA1774E1755BA3900C7DA44 /* Build configuration list for PBXNativeTarget "block_adapter.samples.ios.non_arc" */ = {
 			isa = XCConfigurationList;
@@ -1055,6 +1096,7 @@
 				AEA177501755BA3900C7DA44 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -47,7 +47,7 @@
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView blockButton]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
             
                           Log_debugInt( _counter++ );
                           return nil;
@@ -64,13 +64,13 @@
                       
                       onTouchUpInside:[myView asyncBlockButton]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           Log_debugInt( _counter++ );
                           return nil;
 
                       }
                       
-                      asyncTask:(id)^(id adapteeResponse) {
+                      asyncTask:^id(id adapteeResponse) {
                           Log_debugInt( _counter );
                           return nil;
                       }

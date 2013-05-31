@@ -39,6 +39,11 @@
     UIButton* _barButtonItem;
     //@property (nonatomic, retain) IBOutlet UIButton* barButtonItem;
     //@synthesize barButtonItem = _barButtonItem;
+    
+    // picker
+    UIButton* _picker;
+    //@property (nonatomic, retain) IBOutlet UIButton* picker;
+    //@synthesize picker = _picker;
 
 
 }
@@ -73,5 +78,10 @@
 //UIButton* _barButtonItem;
 @property (nonatomic, retain) IBOutlet UIButton* barButtonItem;
 //@synthesize barButtonItem = _barButtonItem;
+
+// picker
+//UIButton* _picker;
+@property (nonatomic, retain) IBOutlet UIButton* picker;
+//@synthesize picker = _picker;
 
 @end

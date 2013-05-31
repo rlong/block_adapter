@@ -84,7 +84,7 @@
         id adapter = [BATableViewBlockAdapter
                       adapterWithClient:[myView blockTableView]
                       
-                      adaptee:(id)^(UITableView* tableView, NSIndexPath* indexPath) {
+                      adaptee:^id(UITableView* tableView, NSIndexPath* indexPath) {
                           
                           Log_debugInt( indexPath.row );
                           
@@ -102,7 +102,7 @@
         id adapter = [BATableViewBlockAdapter
                       adapterWithClient:[myView asyncBlockTableView]
                       
-                      adaptee:(id)^(UITableView* tableView, NSIndexPath* indexPath) {
+                      adaptee:^id(UITableView* tableView, NSIndexPath* indexPath) {
                           
                           
                           Log_debugInt( indexPath.row );
@@ -111,7 +111,7 @@
                           
                       }
                       
-                      asyncTask:(id)^(id adapteeResponse) {
+                      asyncTask:^id(id adapteeResponse) {
                           
                           NSIndexPath* indexPath = adapteeResponse;
                           Log_debugInt( indexPath.row );
@@ -133,7 +133,7 @@
     {
         id adapter = [BATabBarBlockAdapter
                       adapterWithClient:[myView tabBar]
-                      adaptee:(id)^(UITabBar* tabBar, UITabBarItem* selectedItem) {
+                      adaptee:^id(UITabBar* tabBar, UITabBarItem* selectedItem) {
                           
                           NSArray* items = [tabBar items];
                           if( selectedItem == [items objectAtIndex:0] ) {
@@ -145,6 +145,8 @@
                           }
                           
                           Log_enteredMethod();
+                          
+                          return nil;
                       }];
         
         [myView addAdapter:adapter];

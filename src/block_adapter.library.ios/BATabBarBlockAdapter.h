@@ -11,7 +11,7 @@
 #import "BAAbstractAdapter.h"
 
 
-typedef id(^JBTabBarDelegate)(UITabBar* tabBar, UITabBarItem* selectedItem);
+typedef id(^BATabBarAdaptee)(UITabBar* tabBar, UITabBarItem* selectedItem);
 
 @interface BATabBarBlockAdapter : BAAbstractAdapter <UITabBarDelegate> {
 
@@ -22,22 +22,22 @@ typedef id(^JBTabBarDelegate)(UITabBar* tabBar, UITabBarItem* selectedItem);
     //@synthesize client = _client;
 
     // adaptee
-    JBTabBarDelegate _adaptee;
+    BATabBarAdaptee _adaptee;
     //@property (nonatomic, copy) JBTabBarDelegate adaptee;
     //@synthesize adaptee = _adaptee;
 
     
 }
 
-+(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee;
++(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(BATabBarAdaptee)adaptee;
 
-+(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
++(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(BATabBarAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
 
 
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee;
--(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithClient:(UITabBar*)client adaptee:(BATabBarAdaptee)adaptee;
+-(id)initWithClient:(UITabBar*)client adaptee:(BATabBarAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

@@ -10,7 +10,7 @@
 #import "BAAbstractAdapter.h"
 
 
-typedef id(^JBTableViewDelegate)(UITableView* tableView, NSIndexPath* indexPath);
+typedef id(^BATableViewAdaptee)(UITableView* tableView, NSIndexPath* indexPath);
 
 
 @interface BATableViewBlockAdapter : BAAbstractAdapter <UITableViewDelegate> {
@@ -22,7 +22,7 @@ typedef id(^JBTableViewDelegate)(UITableView* tableView, NSIndexPath* indexPath)
     //@synthesize client = _client;
 
     // adaptee
-    JBTableViewDelegate _adaptee;
+    BATableViewAdaptee _adaptee;
     //@property (nonatomic, copy) JBTableViewDelegate adaptee;
     //@synthesize adaptee = _adaptee;
 
@@ -30,16 +30,16 @@ typedef id(^JBTableViewDelegate)(UITableView* tableView, NSIndexPath* indexPath)
 }
 
 
-+(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee;
++(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(BATableViewAdaptee)adaptee;
 
 
-+(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
++(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(BATableViewAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
 
 #pragma mark -
 #pragma mark instance lifecycle
 
 
--(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee;
--(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithClient:(UITableView*)client adaptee:(BATableViewAdaptee)adaptee;
+-(id)initWithClient:(UITableView*)client adaptee:(BATableViewAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

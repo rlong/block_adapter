@@ -8,7 +8,6 @@
 
 #import "JBBlockJob.h"
 #import "JBLog.h"
-#import "JBWorkManager.h"
 #import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -24,7 +23,7 @@
 
 // adaptee
 //JBTableViewDelegate _adaptee;
-@property (nonatomic, copy) JBTableViewDelegate adaptee;
+@property (nonatomic, copy) BATableViewAdaptee adaptee;
 //@synthesize adaptee = _adaptee;
 
 @end
@@ -38,7 +37,7 @@
 
 
 
-+(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee {
++(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(BATableViewAdaptee)adaptee {
     
     
     BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
@@ -51,7 +50,7 @@
 }
 
 
-+(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(JBTableViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
++(BATableViewBlockAdapter*)adapterWithClient:(UITableView *)client adaptee:(BATableViewAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BATableViewBlockAdapter* answer = [[BATableViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     JBAutorelease(answer);
@@ -70,14 +69,9 @@
     
     id adapteeResponse = _adaptee( tableView, indexPath );
     
-    if( nil != _asyncTask ) {
+    if( nil != _asyncBlock ) {
         
-        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
-        {
-            [JBWorkManager enqueue:job];
-        }
-        JBRelease(job);
-        //[job release];
+        [JBBlockJob executeWithContext:adapteeResponse block:_asyncBlock onBlockDone:_asyncBlockDone onBlockFailed:_asyncBlockFailed];
     }
     
     
@@ -88,7 +82,7 @@
 #pragma mark instance lifecycle
 
 
--(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee  {
+-(id)initWithClient:(UITableView*)client adaptee:(BATableViewAdaptee)adaptee  {
     
     BATableViewBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
@@ -106,7 +100,7 @@
 }
 
 
--(id)initWithClient:(UITableView*)client adaptee:(JBTableViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+-(id)initWithClient:(UITableView*)client adaptee:(BATableViewAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BATableViewBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     

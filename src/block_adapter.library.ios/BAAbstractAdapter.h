@@ -12,21 +12,21 @@
 
 @interface BAAbstractAdapter : NSObject  {
     
-    // asyncTask
-    JBBlock _asyncTask;
-    //@property (nonatomic, copy) JBBlock asyncTask;
-    //@synthesize asyncTask = _asyncTask;
+    // asyncBlock
+    JBBlock _asyncBlock;
+    //@property (nonatomic, copy) JBBlock asyncBlock;
+    //@synthesize asyncBlock = _asyncBlock;
 
-    // asyncTaskDone
-    JBBlockDone _asyncTaskDone;
-    //@property (nonatomic, copy) JBBlockDone asyncTaskDone;
-    //@synthesize asyncTaskDone = _asyncTaskDone;
+    // asyncBlockDone
+    JBBlockDone _asyncBlockDone;
+    //@property (nonatomic, copy) JBBlockDone asyncBlockDone;
+    //@synthesize asyncBlockDone = _asyncBlockDone;
 
     
-    // asyncTaskFailed
-    JBBlockFailed _asyncTaskFailed;
-    //@property (nonatomic, copy) JBBlockFailed asyncTaskFailed;
-    //@synthesize asyncTaskFailed = _asyncTaskFailed;
+    // asyncBlockFailed
+    JBBlockFailed _asyncBlockFailed;
+    //@property (nonatomic, copy) JBBlockFailed asyncBlockFailed;
+    //@synthesize asyncBlockFailed = _asyncBlockFailed;
 
     
 }
@@ -34,7 +34,7 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithAsyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithAsyncBlock:(JBBlock)asyncBlock asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncBlockFailed;
 
 
 @end

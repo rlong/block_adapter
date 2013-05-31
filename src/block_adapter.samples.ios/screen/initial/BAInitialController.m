@@ -13,6 +13,7 @@
 #import "BAButtonController.h"
 #import "BAInitialController.h"
 #import "BAInitialView.h"
+#import "BAPickerController.h"
 #import "BATableViewDelegateController.h"
 
 #import "JBLog.h"
@@ -48,7 +49,7 @@
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView buttons]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           Log_debug(@"buttons");
                           
@@ -70,7 +71,7 @@
     {
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView alerts]
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           Log_debug(@"alerts");
 
@@ -92,7 +93,7 @@
     {
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView actionSheets]
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           Log_debug(@"action sheets");
                           
@@ -114,7 +115,7 @@
     {
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView tableViewDelegate]
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           Log_debug(@"table view delegate");
                           
@@ -138,7 +139,7 @@
         // 
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView barButtonItem]
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           Log_debug(@"bar button item");
                           
@@ -154,6 +155,28 @@
                       }];
         
         [myView addAdapter:adapter]; // to 'retain' the adapter
+    }
+    
+    // picker ...
+    {
+        id adapter = [BAButtonBlockAdapter
+                      onTouchUpInside:[myView picker]
+                      adaptee:^id(UIButton* origin) {
+                          Log_enteredMethod();
+                          
+                          BAPickerController* subController = [[BAPickerController alloc] init];
+                          {
+                              [[self navigationController] pushViewController:subController animated:true];
+                          }
+                          JBRelease(subController);
+                          //[subController release];
+                          
+                          return nil;
+                          
+                      }];
+        [myView addAdapter:adapter]; // to 'retain' the adapter
+
+
     }
     
     

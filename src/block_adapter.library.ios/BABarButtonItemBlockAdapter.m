@@ -7,7 +7,6 @@
 #import "BABarButtonItemBlockAdapter.h"
 
 #import "JBBlockJob.h"
-#import "JBWorkManager.h"
 #import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -23,7 +22,7 @@
 
 // adaptee
 //JBBarButtonItemDelegate _adaptee;
-@property (nonatomic, copy) JBBarButtonItemDelegate adaptee;
+@property (nonatomic, copy) BABarButtonItemAdaptee adaptee;
 //@synthesize adaptee = _adaptee;
 
 
@@ -42,20 +41,15 @@
     
     id adapteeResponse = _adaptee( _client );
     
-    if( nil != _asyncTask ) {
+    if( nil != _asyncBlock ) {
         
-        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
-        {
-            [JBWorkManager enqueue:job];
-        }
-        JBRelease( job);
-        //[job release];
+        [JBBlockJob executeWithContext:adapteeResponse block:_asyncBlock onBlockDone:_asyncBlockDone onBlockFailed:_asyncBlockFailed];
     }
     
 }
 
 
-+(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee {
++(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee {
     
     BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     JBAutorelease(answer);
@@ -64,7 +58,7 @@
     return answer;
 }
 
-+(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
++(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BABarButtonItemBlockAdapter* answer = [[BABarButtonItemBlockAdapter alloc] initWithClient:client
                                                                                       adaptee:adaptee
@@ -83,7 +77,7 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee {
+-(id)initWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee {
     
     BABarButtonItemBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
@@ -102,7 +96,7 @@
     
 }
 
--(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+-(id)initWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BABarButtonItemBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     

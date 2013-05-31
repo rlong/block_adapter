@@ -47,7 +47,7 @@
     {
         id adapter = [BABarButtonItemBlockAdapter
                       adapterWithClient:[myView block]
-                      adaptee:(id)^(UIBarButtonItem* barButtonItem) {
+                      adaptee:^id(UIBarButtonItem* barButtonItem) {
                           Log_enteredMethod();
                           return nil;
                       }];        
@@ -58,12 +58,12 @@
     {
         id adapter = [BABarButtonItemBlockAdapter
                       adapterWithClient:[myView asyncBlock]
-                      adaptee:(id)^(UIBarButtonItem* barButtonItem) {
+                      adaptee:^id(UIBarButtonItem* barButtonItem) {
                           
                           Log_enteredMethod();
                           return nil;
                       }
-                      asyncTask:(id)^(id adapteeResponse){
+                      asyncTask:^id(id adapteeResponse){
                           Log_enteredMethod();
                           return nil;
                       }

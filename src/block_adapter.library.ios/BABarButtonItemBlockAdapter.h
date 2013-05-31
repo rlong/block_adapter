@@ -10,7 +10,7 @@
 #import "BAAbstractAdapter.h"
 
 
-typedef id(^JBBarButtonItemDelegate)(UIBarButtonItem* barButtonItem);
+typedef id(^BABarButtonItemAdaptee)(UIBarButtonItem* barButtonItem);
 
 @interface BABarButtonItemBlockAdapter : BAAbstractAdapter {
  
@@ -20,21 +20,21 @@ typedef id(^JBBarButtonItemDelegate)(UIBarButtonItem* barButtonItem);
     //@synthesize client = _client;
 
     // adaptee
-    JBBarButtonItemDelegate _adaptee;
+    BABarButtonItemAdaptee _adaptee;
     //@property (nonatomic, copy) JBBarButtonItemDelegate adaptee;
     //@synthesize adaptee = _adaptee;
 
 }
 
-+(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee;
++(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee;
 
-+(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
++(BABarButtonItemBlockAdapter*)adapterWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
 
 
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee;
--(id)initWithClient:(UIBarButtonItem*)client adaptee:(JBBarButtonItemDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee;
+-(id)initWithClient:(UIBarButtonItem*)client adaptee:(BABarButtonItemAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

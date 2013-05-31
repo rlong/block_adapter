@@ -51,10 +51,10 @@
     
     id adapter = [BAAlertViewBlockAdapter
      adapterWithClient:alert
-     adaptee:(id)^(UIAlertView* alertView, NSInteger buttonIndex) {
+     adaptee:^(UIAlertView* alertView, NSInteger buttonIndex) {
          
          Log_debugInt( buttonIndex );
-         return nil;
+         return (id)nil;
          
      }];
     
@@ -81,14 +81,14 @@
     id adapter = [BAAlertViewBlockAdapter
                   adapterWithClient:alert
                   
-                  adaptee: (id)^(UIAlertView* alertView, NSInteger buttonIndex) {
+                  adaptee:^id(UIAlertView* alertView, NSInteger buttonIndex) {
               
                       selectedButtonIndex = buttonIndex;
                       return nil;
 
                   }
                   
-                  asyncTask:(id)^(id adapteeResponse) {
+                  asyncTask:^id(id adapteeResponse) {
                       Log_debugInt( selectedButtonIndex );
                       
                       return nil;
@@ -138,7 +138,7 @@
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView blockAlert]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           [self onBlockAlert];
                           return nil;
@@ -155,7 +155,7 @@
         id adapter = [BAButtonBlockAdapter
                       onTouchUpInside:[myView asyncBlockAlert]
                       
-                      adaptee:(id)^(UIButton* origin) {
+                      adaptee:^id(UIButton* origin) {
                           
                           [self onAsyncBlockAlert];
                           return nil;

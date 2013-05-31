@@ -8,7 +8,6 @@
 
 #import "JBBlockJob.h"
 #import "JBObjectTracker.h"
-#import "JBWorkManager.h"
 #import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -25,7 +24,7 @@
 
 // adaptee
 //ActionSheetDelegate _adaptee;
-@property (nonatomic, copy) ActionSheetDelegate adaptee;
+@property (nonatomic, copy) BAActionSheetAdaptee adaptee;
 //@synthesize adaptee = _adaptee;
 
 
@@ -40,7 +39,7 @@
 @implementation BAActionSheetBlockAdapter
 
 
-+(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee {
++(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(BAActionSheetAdaptee)adaptee {
     
     
     BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
@@ -54,7 +53,7 @@
 }
 
 
-+(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
++(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(BAActionSheetAdaptee)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAActionSheetBlockAdapter* answer = [[BAActionSheetBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     JBAutorelease(answer);
@@ -76,14 +75,10 @@
     
     id adapteeResponse = _adaptee( actionSheet, buttonIndex );
     
-    if( nil != _asyncTask ) {
+    if( nil != _asyncBlock ) {
         
-        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
-        {
-            [JBWorkManager enqueue:job];            
-        }
-        JBRelease(job);
-        //[job release];
+        [JBBlockJob executeWithContext:adapteeResponse block:_asyncBlock onBlockDone:_asyncBlockDone onBlockFailed:_asyncBlockFailed];
+
     }
     
 }
@@ -93,7 +88,7 @@
 #pragma mark instance lifecycle
 
 
--(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee {
+-(id)initWithClient:(UIActionSheet*)client adaptee:(BAActionSheetAdaptee)adaptee {
 
     BAActionSheetBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
@@ -112,7 +107,7 @@
 
 }
 
--(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+-(id)initWithClient:(UIActionSheet*)client adaptee:(BAActionSheetAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAActionSheetBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     

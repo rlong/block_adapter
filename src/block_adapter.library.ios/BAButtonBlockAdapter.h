@@ -9,7 +9,7 @@
 
 #import "BAAbstractAdapter.h"
 
-typedef id(^ButtonDelegate)(UIButton*);
+typedef id(^BAButtonAdaptee)(UIButton*);
 
 @interface BAButtonBlockAdapter : BAAbstractAdapter {
     
@@ -19,7 +19,7 @@ typedef id(^ButtonDelegate)(UIButton*);
     //@synthesize client = _client;
     
     // adaptee
-    ButtonDelegate _adaptee;
+    BAButtonAdaptee _adaptee;
     //@property (nonatomic, copy) ButtonDelegate adaptee;
     //@synthesize adaptee = _adaptee;
 
@@ -27,15 +27,15 @@ typedef id(^ButtonDelegate)(UIButton*);
 }
 
 
-+(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee;
++(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(BAButtonAdaptee)adaptee;
 
-+(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
++(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(BAButtonAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
 
 
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee;
--(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithClient:(UIButton*)client adaptee:(BAButtonAdaptee)adaptee;
+-(id)initWithClient:(UIButton*)client adaptee:(BAButtonAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 @end

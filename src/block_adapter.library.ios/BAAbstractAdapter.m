@@ -8,6 +8,7 @@
 
 #import "JBLog.h"
 #import "JBMemoryModel.h"
+#import "JBObjectTracker.h"
 
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -17,21 +18,21 @@
 @interface BAAbstractAdapter ()
 
 
-// asyncTask
-//JBBlock _asyncTask;
-@property (nonatomic, copy) JBBlock asyncTask;
-//@synthesize asyncTask = _asyncTask;
+// asyncBlock
+//JBBlock _asyncBlock;
+@property (nonatomic, copy) JBBlock asyncBlock;
+//@synthesize asyncBlock = _asyncBlock;
 
-// asyncTaskDone
-//JBBlockDone _asyncTaskDone;
-@property (nonatomic, copy) JBBlockDone asyncTaskDone;
-//@synthesize asyncTaskDone = _asyncTaskDone;
+// asyncBlockDone
+//JBBlockDone _asyncBlockDone;
+@property (nonatomic, copy) JBBlockDone asyncBlockDone;
+//@synthesize asyncBlockDone = _asyncBlockDone;
 
 
-// asyncTaskFailed
-//JBBlockFailed _asyncTaskFailed;
-@property (nonatomic, copy) JBBlockFailed asyncTaskFailed;
-//@synthesize asyncTaskFailed = _asyncTaskFailed;
+// asyncBlockFailed
+//JBBlockFailed _asyncBlockFailed;
+@property (nonatomic, copy) JBBlockFailed asyncBlockFailed;
+//@synthesize asyncBlockFailed = _asyncBlockFailed;
 
 @end
 
@@ -46,28 +47,31 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithAsyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
-    
+-(id)initWithAsyncBlock:(JBBlock)asyncBlock asyncBlockDone:(JBBlockDone)asyncBlockDone asyncBlockFailed:(JBBlockFailed)asyncBlockFailed {
     
     BAAbstractAdapter* answer = [super init];
     
     if( nil != answer ) {
-        [answer setAsyncTask:asyncTask];
-        [answer setAsyncTaskDone:asyncTaskDone];
-        [answer setAsyncTaskFailed:asyncTaskFailed];
+        
+        [JBObjectTracker allocated:answer];
+        
+        [answer setAsyncBlock:asyncBlock];
+        [answer setAsyncBlockDone:asyncBlockDone];
+        [answer setAsyncBlockFailed:asyncBlockFailed];
     }
     
     return answer;
-    
     
 }
 
 
 -(void)dealloc {
+    
+    [JBObjectTracker deallocated:self];
 	
-    [self setAsyncTask:nil];
-    [self setAsyncTaskDone:nil];
-	[self setAsyncTaskFailed:nil];
+	[self setAsyncBlock:nil];
+	[self setAsyncBlockDone:nil];
+	[self setAsyncBlockFailed:nil];
 	
     JBSuperDealloc();
 	
@@ -76,19 +80,19 @@
 #pragma mark -
 #pragma mark fields
 
-// asyncTask
-//JBBlock _asyncTask;
-//@property (nonatomic, copy) JBBlock asyncTask;
-@synthesize asyncTask = _asyncTask;
+// asyncBlock
+//JBBlock _asyncBlock;
+//@property (nonatomic, copy) JBBlock asyncBlock;
+@synthesize asyncBlock = _asyncBlock;
 
-// asyncTaskDone
-//JBBlockDone _asyncTaskDone;
-//@property (nonatomic, copy) JBBlockDone asyncTaskDone;
-@synthesize asyncTaskDone = _asyncTaskDone;
+// asyncBlockDone
+//JBBlockDone _asyncBlockDone;
+//@property (nonatomic, copy) JBBlockDone asyncBlockDone;
+@synthesize asyncBlockDone = _asyncBlockDone;
 
-// asyncTaskFailed
-//JBBlockFailed _asyncTaskFailed;
-//@property (nonatomic, copy) JBBlockFailed asyncTaskFailed;
-@synthesize asyncTaskFailed = _asyncTaskFailed;
+// asyncBlockFailed
+//JBBlockFailed _asyncBlockFailed;
+//@property (nonatomic, copy) JBBlockFailed asyncBlockFailed;
+@synthesize asyncBlockFailed = _asyncBlockFailed;
 
 @end

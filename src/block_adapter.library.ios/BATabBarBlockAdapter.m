@@ -10,7 +10,6 @@
 
 #import "JBBlockJob.h"
 #import "JBLog.h"
-#import "JBWorkManager.h"
 #import "JBMemoryModel.h"
 
 
@@ -27,7 +26,7 @@
 
 // adaptee
 //JBTabBarDelegate _adaptee;
-@property (nonatomic, copy) JBTabBarDelegate adaptee;
+@property (nonatomic, copy) BATabBarAdaptee adaptee;
 //@synthesize adaptee = _adaptee;
 
 
@@ -41,7 +40,7 @@
 @implementation BATabBarBlockAdapter
 
 
-+(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee {
++(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(BATabBarAdaptee)adaptee {
     
     
     BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
@@ -55,7 +54,7 @@
 }
 
 
-+(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(JBTabBarDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
++(BATabBarBlockAdapter*)adapterWithClient:(UITabBar *)client adaptee:(BATabBarAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BATabBarBlockAdapter* answer = [[BATabBarBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     JBAutorelease(answer);
@@ -75,14 +74,9 @@
     
     id adapteeResponse = _adaptee( tabBar, item );
     
-    if( nil != _asyncTask ) {
+    if( nil != _asyncBlock ) {
         
-        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
-        {
-            [JBWorkManager enqueue:job];
-        }
-        JBAutorelease(job);
-        //[job release];
+        [JBBlockJob executeWithContext:adapteeResponse block:_asyncBlock onBlockDone:_asyncBlockDone onBlockFailed:_asyncBlockFailed];
     }
     
 }
@@ -92,7 +86,7 @@
 #pragma mark instance lifecycle
 
 
--(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee {
+-(id)initWithClient:(UITabBar*)client adaptee:(BATabBarAdaptee)adaptee {
     
     BATabBarBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
@@ -109,7 +103,7 @@
     
 }
 
--(id)initWithClient:(UITabBar*)client adaptee:(JBTabBarDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+-(id)initWithClient:(UITabBar*)client adaptee:(BATabBarAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BATabBarBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     

@@ -8,7 +8,6 @@
 
 #import "JBBlockJob.h"
 #import "JBLog.h"
-#import "JBWorkManager.h"
 #import "JBMemoryModel.h"
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -26,7 +25,7 @@
 
 // adaptee
 //ButtonDelegate _adaptee;
-@property (nonatomic, copy) ButtonDelegate adaptee;
+@property (nonatomic, copy) BAButtonAdaptee adaptee;
 //@synthesize adaptee = _adaptee;
 
 
@@ -49,21 +48,16 @@
 
     id adapteeResponse = _adaptee( _client );
 
-    if( nil != _asyncTask ) {
+    if( nil != _asyncBlock ) {
         
-        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
-        {
-            [JBWorkManager enqueue:job];
-        }
-        JBRelease(job);
-        //[job release];
+        [JBBlockJob executeWithContext:adapteeResponse block:_asyncBlock onBlockDone:_asyncBlockDone onBlockFailed:_asyncBlockFailed];
     }
 
 }
 
 
 
-+(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee {
++(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(BAButtonAdaptee)adaptee {
     
     BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     JBAutorelease(answer);
@@ -73,7 +67,7 @@
     return answer;
 }
 
-+(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(ButtonDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
++(BAButtonBlockAdapter*)onTouchUpInside:(UIButton*)button adaptee:(BAButtonAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
 
     BAButtonBlockAdapter* answer = [[BAButtonBlockAdapter alloc] initWithClient:button
                                                                         adaptee:adaptee
@@ -96,7 +90,7 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee {
+-(id)initWithClient:(UIButton*)client adaptee:(BAButtonAdaptee)adaptee {
     
     BAButtonBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
@@ -113,7 +107,7 @@
     
 }
 
--(id)initWithClient:(UIButton*)client adaptee:(ButtonDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+-(id)initWithClient:(UIButton*)client adaptee:(BAButtonAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAButtonBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     

@@ -10,7 +10,7 @@
 #import "BAAbstractAdapter.h"
 
 
-typedef id(^ActionSheetDelegate)(UIActionSheet* actionSheet, NSInteger buttonIndex);
+typedef id(^BAActionSheetAdaptee)(UIActionSheet* actionSheet, NSInteger buttonIndex);
 
 @interface BAActionSheetBlockAdapter : BAAbstractAdapter <UIActionSheetDelegate> {
 
@@ -21,7 +21,7 @@ typedef id(^ActionSheetDelegate)(UIActionSheet* actionSheet, NSInteger buttonInd
     
     
     // adaptee
-    ActionSheetDelegate _adaptee;
+    BAActionSheetAdaptee _adaptee;
     //@property (nonatomic, copy) ActionSheetDelegate adaptee;
     //@synthesize adaptee = _adaptee;
     
@@ -29,16 +29,16 @@ typedef id(^ActionSheetDelegate)(UIActionSheet* actionSheet, NSInteger buttonInd
 }
 
 
-+(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee;
++(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(BAActionSheetAdaptee)adaptee;
 
-+(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
++(BAActionSheetBlockAdapter*)adapterWithClient:(UIActionSheet *)client adaptee:(BAActionSheetAdaptee)adaptee asyncBlock:(JBBlock)asyncTask afterAsyncBlockDone:(JBBlockDone)asyncTaskDone afterAsyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee;
--(id)initWithClient:(UIActionSheet*)client adaptee:(ActionSheetDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
+-(id)initWithClient:(UIActionSheet*)client adaptee:(BAActionSheetAdaptee)adaptee;
+-(id)initWithClient:(UIActionSheet*)client adaptee:(BAActionSheetAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed;
 
 
 @end

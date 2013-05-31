@@ -4,15 +4,17 @@
 //
 
 
-#import "BAInitialView.h"
+#import "BAPickerView.h"
+
 #import "JBLog.h"
 #import "JBMemoryModel.h"
 
+
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 ////////////////////////////////////////////////////////////////////////////////
 
-@interface BAInitialView ()
+@interface BAPickerView ()
 
 // blockAdapters
 //NSMutableArray* _blockAdapters;
@@ -26,9 +28,7 @@
 ////////////////////////////////////////////////////////////////////////////////
 #pragma mark -
 
-
-@implementation BAInitialView
-
+@implementation BAPickerView
 
 
 -(void)addAdapter:(id)adapter {
@@ -45,7 +45,7 @@
     
     Log_enteredMethod();
     
-    BAInitialView* answer = [super initWithCoder:aDecoder];
+    BAPickerView* answer = [super initWithCoder:aDecoder];
     if( nil != answer ) {
         _blockAdapters = [[NSMutableArray alloc] init];
         
@@ -55,26 +55,30 @@
     
 }
 
-
 -(void)dealloc {
 	
     [self setBlockAdapters:nil];
     
-    [self setButtons:nil];
-	[self setAlerts:nil];
-	[self setActionSheets:nil];
-	[self setTableViewDelegate:nil];
-	[self setBarButtonItem:nil];
-	[self setPicker:nil];
+    [self setStandardView:nil];
+    [self setStandardPicker:nil];
 
-    JBSuperDealloc();
-	//[super dealloc];
+	[self setBlockView:nil];
+    [self setBlockPicker:nil];
+
+	[self setAsyncBlockView:nil];
+	[self setAsyncBlockPicker:nil];
+
+
+	[self setTabBar:nil];
+
 	
+    JBSuperDealloc();
 }
 
 
 #pragma mark -
 #pragma mark fields
+
 
 // blockAdapters
 //NSMutableArray* _blockAdapters;
@@ -82,37 +86,43 @@
 @synthesize blockAdapters = _blockAdapters;
 
 
-// buttons
-//UIButton* _buttons;
-//@property (nonatomic, retain) IBOutlet UIButton* buttons;
-@synthesize buttons = _buttons;
+// standardView
+//UIView* _standardView;
+//@property (nonatomic, retain) IBOutlet UIView* standardView;
+@synthesize standardView = _standardView;
 
-// alerts
-//UIButton* _alerts;
-//@property (nonatomic, retain) IBOutlet UIButton* alerts;
-@synthesize alerts = _alerts;
+// standardPicker
+//UIPickerView* _standardPicker;
+//@property (nonatomic, retain) IBOutlet UIPickerView* standardPicker;
+@synthesize standardPicker = _standardPicker;
 
+// blockView
+//UIView* _blockView;
+//@property (nonatomic, retain) IBOutlet UIView* blockView;
+@synthesize blockView = _blockView;
 
-// actionSheets
-//UIButton* _actionSheets;
-//@property (nonatomic, retain) IBOutlet UIButton* actionSheets;
-@synthesize actionSheets = _actionSheets;
-
-// tableViewDelegate
-//UIButton* _tableViewDelegate;
-//@property (nonatomic, retain) IBOutlet UIButton* tableViewDelegate;
-@synthesize tableViewDelegate = _tableViewDelegate;
-
-// barButtonItem
-//UIButton* _barButtonItem;
-//@property (nonatomic, retain) IBOutlet UIButton* barButtonItem;
-@synthesize barButtonItem = _barButtonItem;
+// blockPicker
+//UIPickerView* _blockPicker;
+//@property (nonatomic, retain) IBOutlet UIPickerView* blockPicker;
+@synthesize blockPicker = _blockPicker;
 
 
-// picker
-//UIButton* _picker;
-//@property (nonatomic, retain) IBOutlet UIButton* picker;
-@synthesize picker = _picker;
+// asyncBlockView
+//UIView* _asyncBlockView;
+//@property (nonatomic, retain) IBOutlet UIView* asyncBlockView;
+@synthesize asyncBlockView = _asyncBlockView;
+
+// asyncBlockPicker
+//UIPickerView* _asyncBlockPicker;
+//@property (nonatomic, retain) IBOutlet UIPickerView* asyncBlockPicker;
+@synthesize asyncBlockPicker = _asyncBlockPicker;
+
+
+
+// tabBar
+//UITabBar* _tabBar;
+//@property (nonatomic, retain) IBOutlet UITabBar* tabBar;
+@synthesize tabBar = _tabBar;
 
 
 @end

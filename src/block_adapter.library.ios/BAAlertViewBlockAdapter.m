@@ -8,7 +8,6 @@
 
 #import "JBBlockJob.h"
 #import "JBLog.h"
-#import "JBWorkManager.h"
 #import "JBMemoryModel.h"
 
 
@@ -25,7 +24,7 @@
 
 // adaptee
 //AlertViewDelegate _adaptee;
-@property (nonatomic, copy) JBAlertViewDelegate adaptee;
+@property (nonatomic, copy) BAAlertViewAdaptee adaptee;
 //@synthesize adaptee = _adaptee;
 
 
@@ -40,7 +39,7 @@
 @implementation BAAlertViewBlockAdapter
 
 
-+(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee {
++(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(BAAlertViewAdaptee)adaptee {
 
 
     BAAlertViewBlockAdapter* answer = [[BAAlertViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
@@ -53,7 +52,7 @@
 }
 
 
-+(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(JBAlertViewDelegate)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
++(BAAlertViewBlockAdapter*)adapterWithClient:(UIAlertView *)client adaptee:(BAAlertViewAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAAlertViewBlockAdapter* answer = [[BAAlertViewBlockAdapter alloc] initWithClient:client adaptee:adaptee asyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     JBAutorelease(answer);
@@ -75,14 +74,9 @@
     
     id adapteeResponse = _adaptee( alertView, buttonIndex );
     
-    if( nil != _asyncTask ) {
+    if( nil != _asyncBlock ) {
         
-        JBBlockJob* job = [[JBBlockJob alloc] initWithContext:adapteeResponse block:_asyncTask onBlockDone:_asyncTaskDone onBlockFailed:_asyncTaskFailed];
-        {
-            [JBWorkManager enqueue:job];
-        }
-        JBRelease(job);
-        //[job release];
+        [JBBlockJob executeWithContext:adapteeResponse block:_asyncBlock onBlockDone:_asyncBlockDone onBlockFailed:_asyncBlockFailed];
     }
     
 }
@@ -92,7 +86,7 @@
 #pragma mark instance lifecycle
 
 
--(id)initWithClient:(UIAlertView*)client adaptee:(JBAlertViewDelegate)adaptee {
+-(id)initWithClient:(UIAlertView*)client adaptee:(BAAlertViewAdaptee)adaptee {
     
     BAAlertViewBlockAdapter* answer = [super initWithAsyncBlock:nil asyncBlockDone:nil asyncBlockFailed:nil];
     
@@ -108,7 +102,7 @@
     return answer;
 }
 
--(id)initWithClient:(UIAlertView*)client adaptee:(JBAlertViewDelegate)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
+-(id)initWithClient:(UIAlertView*)client adaptee:(BAAlertViewAdaptee)adaptee asyncBlock:(JBBlock)asyncTask asyncBlockDone:(JBBlockDone)asyncTaskDone asyncBlockFailed:(JBBlockFailed)asyncTaskFailed {
     
     BAAlertViewBlockAdapter* answer = [super initWithAsyncBlock:asyncTask asyncBlockDone:asyncTaskDone asyncBlockFailed:asyncTaskFailed];
     
