@@ -4,18 +4,21 @@
 //
 
 
+
 #import "BAPickerBlockAdapter.h"
 #import "BAPickerController.h"
 #import "BAPickerView.h"
+#import "BAPickerViewDataSource.h"
+#import "BAPickerViewDelegate.h"
 #import "BATabBarBlockAdapter.h"
 
 #import "JBLog.h"
-
+#import "JBBlockJob.h"
 
 @implementation BAPickerController
 
 
--(BAPickerView*)getTypedView {
+-(BAPickerView*)typedView {
     
     return (BAPickerView*)[self view];
 }
@@ -41,7 +44,7 @@
 
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component {
     
-    return [NSString stringWithFormat:@"%d[%d]", component, row];
+    return [NSString stringWithFormat:@"%ld[%ld]", component, row];
     
 }
 
@@ -62,59 +65,84 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BAPickerView* myView = [self getTypedView];
+    BAPickerView* myView = [self typedView];
     
     {
         [[myView blockView] setHidden:true];
         [[myView asyncBlockView] setHidden:true];
     }
     
-    
     // block
     {
         
-        id adapter = [BAPickerBlockAdapter
-                      adapterWithClient:[myView blockPicker]
-                      
-                      titleProvider:^NSString*(UIPickerView* pickerView, NSInteger row, NSInteger component) {
-                          NSString* answer = [NSString stringWithFormat:@"%d[%d]", component, row];
-                          Log_debugString( answer );
-                          return answer;
-                      }
-                      
-                      adaptee:^id(UIPickerView* pickerView, NSInteger selectedRow, NSInteger component) {
-                          Log_enteredMethod();
-                          return nil;
-                      }];
-        [myView addAdapter:adapter];
-   
-    }
-    
-    // async_block
-    {
-        id adapter = [BAPickerBlockAdapter
-                      adapterWithClient:[myView asyncBlockPicker]
-                      titleProvider:^NSString*(UIPickerView* pickerView, NSInteger row, NSInteger component) {
-                          NSString* answer = [NSString stringWithFormat:@"%d[%d]", component, row];
-                          Log_debugString( answer );
-                          return answer;
-                      }
-                      adaptee:^id(UIPickerView* pickerView, NSInteger selectedRow, NSInteger component) {
-                          Log_enteredMethod();
-                          return nil;
-                      }
-                      asyncTask:^id(id adapteeResponse) {
-                          Log_enteredMethod();
-                          return nil;
-                      }
-                      afterAsyncTaskDone:^(id adapteeResponse, id blockResponse) {
-                          Log_enteredMethod();
-                      }
-                      afterAsyncTaskFailed:nil];
-        [myView addAdapter:adapter];
+        BAPickerViewDataSource* dataSource = [BAPickerViewDataSource
+                                              buildWithNumberOfComponents:^NSInteger(UIPickerView *pickerView) {
+                                                  return 2;
+                                              }
+                                              numberOfRows:^NSInteger(UIPickerView *pickerView, NSInteger component) {
+                                                  return 11;
+                                              }];
+        
+        
+        // simple block ...
+        {
 
+            BAPickerViewDelegate* delegate = [BAPickerViewDelegate
+                                              buildWithTitleForPicker:^NSString*(UIPickerView* pickerView, NSInteger row, NSInteger component) {
+                                                  return [NSString stringWithFormat:@"%ld[%ld]", component, row];
+                                              }
+                                              pickerSelectedRow:^void(UIPickerView* pickerView, NSInteger selectedRow, NSInteger component ) {
+                                                  Log_debugFormat( @"selectedRow = %d; component = %d", selectedRow, component );
+
+                                              }];
+            
+            
+            BAPickerBlockAdapter* adapter = [[BAPickerBlockAdapter alloc] initWithPickerViewDataSource:dataSource
+                                                       pickerViewDelegate:delegate];
+            
+            [adapter setupWithPickerView:[myView blockPicker]];
+            [myView addAdapter:adapter];
+
+        }
+        
+        
+        // async block ...
+        {
+            BAPickerViewDelegate* delegate = [BAPickerViewDelegate
+                                              buildWithTitleForPicker:^NSString*(UIPickerView* pickerView, NSInteger row, NSInteger component) {
+                                                  return [NSString stringWithFormat:@"%ld[%ld]", component, row];
+                                              }
+                                              pickerSelectedRow:^void(UIPickerView* pickerView, NSInteger selectedRow, NSInteger component ) {
+                                                  Log_debugFormat( @"selectedRow = %d; component = %d", selectedRow, component );
+                                                  
+                                                  [JBBlockJob
+                                                   executeWithContext:nil
+                                                   block:^id(id adapteeResponse) {
+                                                       Log_enteredMethod();
+                                                       return nil;
+                                                   }
+                                                   onBlockDone:^(id adapteeResponse, id blockResponse) {
+                                                       Log_enteredMethod();
+                                                   }
+
+                                                   onBlockFailed:nil];
+
+                                                  
+                                                  
+                                              }];
+            
+            
+            BAPickerBlockAdapter* adapter = [[BAPickerBlockAdapter alloc] initWithPickerViewDataSource:dataSource
+                                                       pickerViewDelegate:delegate];
+            
+            
+            [adapter setupWithPickerView:[myView asyncBlockPicker]];
+            [myView addAdapter:adapter];
+            
+        }
         
     }
+    
     
     // tab bar
     {

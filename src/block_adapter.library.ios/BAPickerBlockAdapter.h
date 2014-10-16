@@ -9,32 +9,51 @@
 
 #import "BAAbstractAdapter.h"
 
+
+
 typedef NSString*(^BAPickerTitleProvider)(UIPickerView* pickerView, NSInteger row, NSInteger component);
-typedef UIView*(^BAPickerViewProvider)(UIPickerView* pickerView, NSInteger row, NSInteger component, UIView* reuseView);
+//typedef UIView*(^BAPickerViewProvider)(UIPickerView* pickerView, NSInteger row, NSInteger component, UIView* reuseView);
 
 typedef id(^BAPickerAdaptee)(UIPickerView* pickerView, NSInteger selectedRow, NSInteger component);
 
 @interface BAPickerBlockAdapter : BAAbstractAdapter <UIPickerViewDelegate> {
     
-    // client
-    UIPickerView* _client;
-    //@property (nonatomic, retain) UIPickerView* client;
-    //@synthesize client = _client;
-
     
-    // adaptee
-    BAPickerAdaptee _adaptee;
-    //@property (nonatomic, copy) BAPickerAdaptee adaptee;
-    //@synthesize adaptee = _adaptee;
+    // pickerViewDataSource
+    id<UIPickerViewDataSource> _pickerViewDataSource;
+    //@property (nonatomic, retain) id<UIPickerViewDataSource> pickerViewDataSource;
+    //@synthesize pickerViewDataSource = _pickerViewDataSource;
+    
+    
+    // pickerViewDelegate
+    id<UIPickerViewDelegate> _pickerViewDelegate;
+    //@property (nonatomic, retain) id<UIPickerViewDelegate> pickerViewDelegate;
+    //@synthesize pickerViewDelegate = _pickerViewDelegate;
+
 
 
 }
 
 
-+(BAPickerBlockAdapter*)adapterWithClient:(UIPickerView *)client titleProvider:(BAPickerTitleProvider)titleProvider adaptee:(BAPickerAdaptee)adaptee;
-+(BAPickerBlockAdapter*)adapterWithClient:(UIPickerView *)client viewProvider:(BAPickerViewProvider)viewProvider adaptee:(BAPickerAdaptee)adaptee;
+-(void)setupWithPickerView:(UIPickerView*)pickerView;
 
-+(BAPickerBlockAdapter*)adapterWithClient:(UIPickerView *)client titleProvider:(BAPickerTitleProvider)titleProvider adaptee:(BAPickerAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
-+(BAPickerBlockAdapter*)adapterWithClient:(UIPickerView *)client viewProvider:(BAPickerViewProvider)viewProvider adaptee:(BAPickerAdaptee)adaptee asyncTask:(JBBlock)asyncTask afterAsyncTaskDone:(JBBlockDone)asyncTaskDone afterAsyncTaskFailed:(JBBlockFailed)asyncTaskFailed;
+// 'pickerViewDataSource' and 'pickerViewDelegate' can be nil
+-(id)initWithPickerViewDataSource:(id<UIPickerViewDataSource>)pickerViewDataSource pickerViewDelegate:(id<UIPickerViewDelegate>)pickerViewDelegate;
+
+
+#pragma mark -
+#pragma mark fields
+
+// pickerViewDataSource
+//id<UIPickerViewDataSource> _pickerViewDataSource;
+@property (nonatomic, retain) id<UIPickerViewDataSource> pickerViewDataSource;
+//@synthesize pickerViewDataSource = _pickerViewDataSource;
+
+
+// pickerViewDelegate
+//id<UIPickerViewDelegate> _pickerViewDelegate;
+@property (nonatomic, retain) id<UIPickerViewDelegate> pickerViewDelegate;
+//@synthesize pickerViewDelegate = _pickerViewDelegate;
+
 
 @end

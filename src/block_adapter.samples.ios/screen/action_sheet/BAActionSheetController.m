@@ -18,7 +18,7 @@
 
 
 
--(BAActionSheetView*)getTypedView {
+-(BAActionSheetView*)typedView {
     
     return (BAActionSheetView*)[self view];
 }
@@ -40,7 +40,7 @@
                       }];
         
         
-        BAActionSheetView* myView = [self getTypedView];
+        BAActionSheetView* myView = [self typedView];
         [myView addAdapter:adapter]; // to 'retain' the adapter
 
         UIToolbar* toolbar = [myView toolbar];
@@ -79,7 +79,7 @@
                       afterAsyncBlockFailed:nil];
         
         
-        BAActionSheetView* myView = [self getTypedView];
+        BAActionSheetView* myView = [self typedView];
         [myView addAdapter:adapter]; // to 'retain' the adapter
         
         UIToolbar* toolbar = [myView toolbar];
@@ -102,7 +102,7 @@
     UIActionSheet* actionSheet = [[UIActionSheet alloc] initWithTitle:@"Standard Action Sheet" delegate:self cancelButtonTitle:nil destructiveButtonTitle:nil otherButtonTitles:@"OK", nil];
     {
         
-        BAActionSheetView* myView = [self getTypedView];
+        BAActionSheetView* myView = [self typedView];
         UIToolbar* toolbar = [myView toolbar];
         [actionSheet showFromToolbar:toolbar];
         
@@ -132,7 +132,7 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BAActionSheetView* myView = [self getTypedView];
+    BAActionSheetView* myView = [self typedView];
     
     // block action sheet ...
     {

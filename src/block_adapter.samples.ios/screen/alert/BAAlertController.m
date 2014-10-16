@@ -18,7 +18,7 @@
 
 
 
--(BAAlertView*)getTypedView {
+-(BAAlertView*)typedView {
     
     return (BAAlertView*)[self view];
 }
@@ -58,7 +58,7 @@
          
      }];
     
-    [[self getTypedView] addAdapter:adapter];
+    [[self typedView] addAdapter:adapter];
      
     [alert show];
     JBRelease(alert);
@@ -100,7 +100,7 @@
                   
                   afterAsyncTaskFailed:nil];
     
-    [[self getTypedView] addAdapter:adapter];
+    [[self typedView] addAdapter:adapter];
     
     [alert show];
     JBRelease(alert);
@@ -129,7 +129,7 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BAAlertView* myView = [self getTypedView];
+    BAAlertView* myView = [self typedView];
     
     // standard (synchronous) block alert ...
     {

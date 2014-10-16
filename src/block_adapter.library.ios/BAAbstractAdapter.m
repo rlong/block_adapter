@@ -18,21 +18,6 @@
 @interface BAAbstractAdapter ()
 
 
-// asyncBlock
-//JBBlock _asyncBlock;
-@property (nonatomic, copy) JBBlock asyncBlock;
-//@synthesize asyncBlock = _asyncBlock;
-
-// asyncBlockDone
-//JBBlockDone _asyncBlockDone;
-@property (nonatomic, copy) JBBlockDone asyncBlockDone;
-//@synthesize asyncBlockDone = _asyncBlockDone;
-
-
-// asyncBlockFailed
-//JBBlockFailed _asyncBlockFailed;
-@property (nonatomic, copy) JBBlockFailed asyncBlockFailed;
-//@synthesize asyncBlockFailed = _asyncBlockFailed;
 
 @end
 
@@ -47,7 +32,22 @@
 #pragma mark -
 #pragma mark instance lifecycle
 
--(id)initWithAsyncBlock:(JBBlock)asyncBlock asyncBlockDone:(JBBlockDone)asyncBlockDone asyncBlockFailed:(JBBlockFailed)asyncBlockFailed {
+
+-(id)init  {
+
+    BAAbstractAdapter* answer = [super init];
+    
+    if( nil != answer ) {
+        
+        [JBObjectTracker allocated:answer];
+    }
+    
+    return answer;
+    
+}
+
+
+-(id)initWithAsyncBlock:(jbBlock)asyncBlock asyncBlockDone:(jbBlockDone)asyncBlockDone asyncBlockFailed:(jbBlockFailed)asyncBlockFailed {
     
     BAAbstractAdapter* answer = [super init];
     
@@ -81,18 +81,18 @@
 #pragma mark fields
 
 // asyncBlock
-//JBBlock _asyncBlock;
-//@property (nonatomic, copy) JBBlock asyncBlock;
+//jbBlock _asyncBlock;
+//@property (nonatomic, copy) jbBlock asyncBlock;
 @synthesize asyncBlock = _asyncBlock;
 
 // asyncBlockDone
-//JBBlockDone _asyncBlockDone;
-//@property (nonatomic, copy) JBBlockDone asyncBlockDone;
+//jbBlockDone _asyncBlockDone;
+//@property (nonatomic, copy) jbBlockDone asyncBlockDone;
 @synthesize asyncBlockDone = _asyncBlockDone;
 
 // asyncBlockFailed
-//JBBlockFailed _asyncBlockFailed;
-//@property (nonatomic, copy) JBBlockFailed asyncBlockFailed;
+//jbBlockFailed _asyncBlockFailed;
+//@property (nonatomic, copy) jbBlockFailed asyncBlockFailed;
 @synthesize asyncBlockFailed = _asyncBlockFailed;
 
 @end

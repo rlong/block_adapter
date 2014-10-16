@@ -12,7 +12,7 @@
 
 @implementation BAButtonController
 
--(BAButtonView*)getTypedView {
+-(BAButtonView*)typedView {
     
     return (BAButtonView*)[self view];
 }
@@ -39,7 +39,7 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BAButtonView* myView = [self getTypedView];
+    BAButtonView* myView = [self typedView];
     
     
     // standard (synchronous) button ...

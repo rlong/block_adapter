@@ -19,7 +19,7 @@
 
 
 
--(BATableViewDelegateView*)getTypedView {
+-(BATableViewDelegateView*)typedView {
     
     return (BATableViewDelegateView*)[self view];
 }
@@ -57,8 +57,8 @@
 	}
     
     
-    int index = indexPath.row;
-    NSString* textLabel = [NSString stringWithFormat:@"row %d", index];
+    NSInteger index = indexPath.row;
+    NSString* textLabel = [NSString stringWithFormat:@"row %ld", index];
     [[answer textLabel] setText:textLabel];
     
     return answer;
@@ -75,7 +75,7 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BATableViewDelegateView* myView = [self getTypedView];
+    BATableViewDelegateView* myView = [self typedView];
     
     
     // block table ...

@@ -24,7 +24,7 @@
 @implementation BAInitialController
 
 
--(BAInitialView*)getTypedView {
+-(BAInitialView*)typedView {
     
     return (BAInitialView*)[self view];
 }
@@ -41,7 +41,7 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BAInitialView* myView = [self getTypedView];
+    BAInitialView* myView = [self typedView];
     
     
     // buttons ...

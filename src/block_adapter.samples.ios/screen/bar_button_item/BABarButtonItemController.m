@@ -13,7 +13,7 @@
 @implementation BABarButtonItemController
 
 
--(BABarButtonItemView*)getTypedView {
+-(BABarButtonItemView*)typedView {
     
     return (BABarButtonItemView*)[self view];
 }
@@ -38,7 +38,7 @@
 	[super viewDidLoad];
     Log_enteredMethod();
     
-    BABarButtonItemView* myView = [self getTypedView];
+    BABarButtonItemView* myView = [self typedView];
     
     
     typedef id(^JBBarButtonItemDelegate)(UIBarButtonItem* barButtonItem);

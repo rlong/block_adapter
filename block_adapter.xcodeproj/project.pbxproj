@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AE74AD73184FEDDC005C24F2 /* BAPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AE74AD72184FEDDC005C24F2 /* BAPickerViewDataSource.m */; };
+		AE74AD74184FEDDC005C24F2 /* BAPickerViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = AE74AD72184FEDDC005C24F2 /* BAPickerViewDataSource.m */; };
+		AE74AD7B18500CA3005C24F2 /* BAPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE74AD7A18500CA3005C24F2 /* BAPickerViewDelegate.m */; };
+		AE74AD7C18500CA3005C24F2 /* BAPickerViewDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = AE74AD7A18500CA3005C24F2 /* BAPickerViewDelegate.m */; };
 		AE85161C1755D573005514C0 /* BAPickerBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */; };
 		AE85161D1755D573005514C0 /* BAPickerBlockAdapter.m in Sources */ = {isa = PBXBuildFile; fileRef = AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */; };
 		AEA176A71755ADBC00C7DA44 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE7CBBA11745BEE0000FCA37 /* Foundation.framework */; };
@@ -116,6 +120,10 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		AE74AD71184FEDDC005C24F2 /* BAPickerViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPickerViewDataSource.h; sourceTree = "<group>"; };
+		AE74AD72184FEDDC005C24F2 /* BAPickerViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPickerViewDataSource.m; sourceTree = "<group>"; };
+		AE74AD7918500CA3005C24F2 /* BAPickerViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BAPickerViewDelegate.h; sourceTree = "<group>"; };
+		AE74AD7A18500CA3005C24F2 /* BAPickerViewDelegate.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BAPickerViewDelegate.m; sourceTree = "<group>"; };
 		AE7CBB9F1745BEE0000FCA37 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
 		AE7CBBA11745BEE0000FCA37 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		AE7CBBA31745BEE0000FCA37 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
@@ -300,6 +308,10 @@
 				AE887B651749E9D900B82201 /* BAButtonBlockAdapter.m */,
 				AE85161A1755D573005514C0 /* BAPickerBlockAdapter.h */,
 				AE85161B1755D573005514C0 /* BAPickerBlockAdapter.m */,
+				AE74AD71184FEDDC005C24F2 /* BAPickerViewDataSource.h */,
+				AE74AD72184FEDDC005C24F2 /* BAPickerViewDataSource.m */,
+				AE74AD7918500CA3005C24F2 /* BAPickerViewDelegate.h */,
+				AE74AD7A18500CA3005C24F2 /* BAPickerViewDelegate.m */,
 				AE887B661749E9D900B82201 /* BATabBarBlockAdapter.h */,
 				AE887B671749E9D900B82201 /* BATabBarBlockAdapter.m */,
 				AE887B681749E9D900B82201 /* BATableViewBlockAdapter.h */,
@@ -640,7 +652,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE74AD74184FEDDC005C24F2 /* BAPickerViewDataSource.m in Sources */,
 				AEA176AE1755ADBC00C7DA44 /* block_adapter_library_ios_non_arc.m in Sources */,
+				AE74AD7C18500CA3005C24F2 /* BAPickerViewDelegate.m in Sources */,
 				AEA176B21755ADC800C7DA44 /* BAAbstractAdapter.m in Sources */,
 				AEA176B31755ADCB00C7DA44 /* BAActionSheetBlockAdapter.m in Sources */,
 				AEA176B41755ADCD00C7DA44 /* BAAlertViewBlockAdapter.m in Sources */,
@@ -656,7 +670,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE74AD73184FEDDC005C24F2 /* BAPickerViewDataSource.m in Sources */,
 				AEA176C51755AEB500C7DA44 /* block_adapter_library_ios.m in Sources */,
+				AE74AD7B18500CA3005C24F2 /* BAPickerViewDelegate.m in Sources */,
 				AEA177291755B71600C7DA44 /* BAAbstractAdapter.m in Sources */,
 				AEA1772A1755B71900C7DA44 /* BAActionSheetBlockAdapter.m in Sources */,
 				AEA1772B1755B71C00C7DA44 /* BAAlertViewBlockAdapter.m in Sources */,
@@ -739,12 +755,15 @@
 		AE7CBB961745BE5B000FCA37 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
 			};
 			name = Debug;
 		};
 		AE7CBB971745BE5B000FCA37 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				SDKROOT = iphoneos;
 			};
 			name = Release;
 		};
@@ -852,7 +871,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				ONLY_ACTIVE_ARCH = YES;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -886,7 +905,7 @@
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 4.3;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
 				OTHER_LDFLAGS = "-ObjC";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
